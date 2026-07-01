@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-scroll-container>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#103967">
+<title>荔猫AI · AI行业生态服务商</title>
+<meta name="description" content="荔猫AI——AI行业生态服务商，以AI超级员工SaaS平台为核心，为企业提供AI获客、AI引流、AI销售全链路营销解决方案及AI教育培训与全托管服务。">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="progressBar" class="progress-bar"></div>
+
+<!-- ========== NAV ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="/logo.svg" alt="荔猫AI" class="nav-brand-logo">
+      <span class="nav-brand-text">荔猫AI</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#products" class="nav-link" data-nav>产品</a>
+      <a href="#capabilities" class="nav-link" data-nav>核心能力</a>
+      <a href="#flywheel" class="nav-link" data-nav>增长飞轮</a>
+      <a href="#cases" class="nav-link" data-nav>案例</a>
+      <a href="#academy" class="nav-link" data-nav>商学院</a>
+      <a href="#faq" class="nav-link" data-nav>FAQ</a>
+      <a href="#contact" class="nav-cta">联系我们</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero" data-section>
+  <canvas id="threeCanvas" class="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-tag" data-reveal-hero>AI行业生态服务商</div>
+        <h1 class="hero-title" data-reveal-hero>
+          <span class="hero-line"><span class="hero-title-em">AI</span> 营销军团</span>
+          <span class="hero-line">一台电脑就够了</span>
+        </h1>
+        <p class="hero-sub" data-reveal-hero>
+          荔猫AI以超级员工SaaS平台为核心，打通公域获客→私域沉淀→AI转化全链路，<br class="hide-mobile">
+          为中小企业提供 AI获客 · AI引流 · AI销售 一站式解决方案。
+        </p>
+        <div class="hero-actions" data-reveal-hero>
+          <a href="#" class="btn btn-accent btn-glow" data-modal="demo">
+            <span>预约演示</span>
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#products" class="btn btn-ghost btn-ghost-light">
+            <span>了解产品</span>
+          </a>
+        </div>
+        <div class="hero-indicators" data-reveal-hero>
+          <div class="hero-indicator">
+            <span class="hero-ind-num" data-count="30">0</span><span class="hero-ind-unit">万+</span>
+            <span class="hero-ind-label">全网用户</span>
+          </div>
+          <div class="hero-ind-divider"></div>
+          <div class="hero-indicator">
+            <span class="hero-ind-num" data-count="1000">0</span><span class="hero-ind-unit">万+</span>
+            <span class="hero-ind-label">私域流量</span>
+          </div>
+          <div class="hero-ind-divider"></div>
+          <div class="hero-indicator">
+            <span class="hero-ind-num" data-count="100">0</span><span class="hero-ind-unit">个</span>
+            <span class="hero-ind-label">AI员工</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal-hero>
+        <div class="hero-card" id="heroCard">
+          <div class="hero-card-glow"></div>
+          <div class="hero-card-header">
+            <div class="hero-card-dots">
+              <span class="hero-card-dot" style="background:#ff5f57"></span>
+              <span class="hero-card-dot" style="background:#ffbd2e"></span>
+              <span class="hero-card-dot" style="background:#28c840"></span>
+            </div>
+            <span class="hero-card-title">LM.CLAW 终端</span>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-card-line"><span class="hl">$</span> 启动 AI获客引擎</div>
+            <div class="hero-card-line"><span class="hl">></span> 短视频矩阵 · 已分发 <span class="acc">47</span> 条</div>
+            <div class="hero-card-line"><span class="hl">></span> 线索采集 · 新增 <span class="acc">1,284</span> 条</div>
+            <div class="hero-card-line"><span class="hl">></span> 私域加粉 · 通过率 <span class="acc">92%</span></div>
+            <div class="hero-card-line blink-line"><span class="cm">_ 实时监控中 ...</span></div>
+          </div>
+          <div class="hero-card-footer">
+            <span class="hero-card-stat">100 个 AI 员工在线</span>
+            <span class="hero-card-stat">7×24h 执行中</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>向下滚动</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section class="section" id="products" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label">核心产品</span>
+      <h2 class="section-title">AI超级员工 · 全家桶</h2>
+      <p class="section-desc">
+        以 <strong>LM.CLAW</strong> 超级SaaS平台为中枢，<strong>100个AI员工</strong> 覆盖 <strong>38个职能岗位</strong>，让企业营销告别低效与高成本。
+      </p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card product-card-featured" data-reveal data-card>
+        <div class="product-card-bg"></div>
+        <div class="product-icon-wrap">
+          <div class="product-icon icon-lightning">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+        </div>
+        <h3>LM.CLAW 超级SaaS平台</h3>
+        <div class="product-sub">企业智能中枢</div>
+        <p>连接全域数据与业务流，集多平台运营、精准引流、智能销售、数据管理于一体。支持电脑端与飞书手机端双端指令触发。</p>
+        <div class="product-tags">
+          <span class="product-tag">100个AI员工</span>
+          <span class="product-tag">38个职能岗位</span>
+          <span class="product-tag">7×24h自动执行</span>
+          <span class="product-tag">双端联动</span>
+        </div>
+      </div>
+      <div class="product-card" data-reveal data-card>
+        <div class="product-card-bg"></div>
+        <div class="product-icon-wrap">
+          <div class="product-icon icon-target">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+        </div>
+        <h3>AI销冠智能体</h3>
+        <div class="product-sub">7×24h智能客服</div>
+        <p>深度学习顶尖销售话术，精准线索挖掘筛选，全天候客户跟进。从获客到成交，全链路AI驱动。</p>
+        <div class="product-tags">
+          <span class="product-tag">智能跟单</span>
+          <span class="product-tag">高情商促单</span>
+          <span class="product-tag">客户分层</span>
+        </div>
+      </div>
+      <div class="product-card" data-reveal data-card>
+        <div class="product-card-bg"></div>
+        <div class="product-icon-wrap">
+          <div class="product-icon icon-user">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+        </div>
+        <h3>AI数字人</h3>
+        <div class="product-sub">超写实数字人克隆</div>
+        <p>5分钟视频即可完成数字人克隆，AI一键生成播报视频，无需出镜即可打造品牌IP。</p>
+        <div class="product-tags">
+          <span class="product-tag">数字人克隆</span>
+          <span class="product-tag">AI播报</span>
+          <span class="product-tag">无需出镜</span>
+        </div>
+      </div>
+      <div class="product-card" data-reveal data-card>
+        <div class="product-card-bg"></div>
+        <div class="product-icon-wrap">
+          <div class="product-icon icon-grid">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+        </div>
+        <h3>AI工具矩阵</h3>
+        <div class="product-sub">全方位营销赋能</div>
+        <p>AI爆粉系统、数字名片、短视频混剪等工具矩阵，全方位赋能营销全链路降本增效。</p>
+        <div class="product-tags">
+          <span class="product-tag">AI爆粉</span>
+          <span class="product-tag">数字名片</span>
+          <span class="product-tag">短视频混剪</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PARTNER STRIP ========== -->
+<section class="partner-strip" data-reveal>
+  <div class="container">
+    <p class="partner-label">生态合作伙伴</p>
+    <div class="partner-track">
+      <div class="partner-track-inner" id="partnerTrack">
+        <span class="partner-item">易企创</span>
+        <span class="partner-item">博今集团</span>
+        <span class="partner-item">蓝金集团</span>
+        <span class="partner-item">南粤家政</span>
+        <span class="partner-item">辉芃科创</span>
+        <span class="partner-item">仟万传媒</span>
+        <span class="partner-item">荣品科技</span>
+        <span class="partner-item">山东雅创</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="partner-item">易企创</span>
+        <span class="partner-item">博今集团</span>
+        <span class="partner-item">蓝金集团</span>
+        <span class="partner-item">南粤家政</span>
+        <span class="partner-item">辉芃科创</span>
+        <span class="partner-item">仟万传媒</span>
+        <span class="partner-item">荣品科技</span>
+        <span class="partner-item">山东雅创</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CAPABILITIES ========== -->
+<section class="section" id="capabilities" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label">核心能力</span>
+      <h2 class="section-title">三大AI员工 · 全链路营销</h2>
+      <p class="section-desc">
+        以AI重构营销全链路，<strong>"AI获客 + AI引流 + AI销售"</strong> 三位一体，实现自动化、智能化营销体系。
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card service-highlight" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">📹</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>AI获客</h3>
+          <span class="serv-badge">增效核心</span>
+        </div>
+        <p>批量生成爆款短视频，智能匹配行业关键词，自动发布至抖音、快手、视频号、小红书等主流平台。GEO智能体优化内容分发，多账号一键管理。</p>
+        <div class="chart-wrap" data-chart="serv-kehu"><div class="chart-box"></div></div>
+        <div class="serv-foot">已服务 800+ 企业 · 单客户月均获客 2,000+ 条</div>
+        <div class="service-bg-pattern"></div>
+      </div>
+      <div class="service-card" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">📡</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>AI引流</h3>
+          <span class="serv-badge">降本主力</span>
+        </div>
+        <p>按行业+用户画像全网采集高意向客户，AI智能执行主动私信/评论互动，7×24h抖音客服自动回复，自动加粉拉群沉淀私域。</p>
+        <div class="chart-wrap" data-chart="serv-yinliu"><div class="chart-box"></div></div>
+        <div class="serv-foot">帮助企业获客成本从 ¥200+ 降至 ¥40</div>
+      </div>
+      <div class="service-card" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">💬</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>AI销售</h3>
+          <span class="serv-badge">提效引擎</span>
+        </div>
+        <p>智能私域管家自动通过好友申请、监控聊天记录、把握客户需求；高情商促单7×24h在线；日常办公全自动化，数据加密安全可靠。</p>
+        <div class="chart-wrap" data-chart="serv-xiaoshou"><div class="chart-box"></div></div>
+        <div class="serv-foot">单个AI员工 = 3名全职销售 · 成交周期缩短 60%</div>
+      </div>
+      <div class="service-card" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">🎓</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>AI+教培</h3>
+          <span class="serv-badge">赋能体系</span>
+        </div>
+        <p>荔猫AI商学院提供从AI训练师基础营到操盘营的完整课程体系，30+行业实战专家授课，学·练·赛·用四位一体。</p>
+        <div class="chart-wrap" data-chart="serv-jiaopei"><div class="chart-box"></div></div>
+        <div class="serv-foot">覆盖 18 门实战课程 · 累计培训 10,000+ 学员</div>
+      </div>
+      <div class="service-card" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">🎬</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>AI+动漫/短剧</h3>
+          <span class="serv-badge">内容工厂</span>
+        </div>
+        <p>无绘画/拍摄基础用户可通过"文本→视频"全流程工具完成创作，头部团队单日产能达20部，AI漫剧与真人短剧双轮驱动。</p>
+        <div class="chart-wrap" data-chart="serv-dongman"><div class="chart-box"></div></div>
+        <div class="serv-foot">AI漫剧全网累计播放量 5亿+ 次</div>
+      </div>
+      <div class="service-card" data-reveal data-tilt>
+        <div class="service-icon-bg">
+          <div class="service-icon">🏗️</div>
+        </div>
+        <div class="serv-head-row">
+          <h3>私有化部署</h3>
+          <span class="serv-badge">数据安全</span>
+        </div>
+        <p>一次购买终身使用，独立服务器部署，品牌logo/界面自定义。数据不出企业内网，半小时完成部署调试。</p>
+        <div class="chart-wrap" data-chart="serv-bushu"><div class="chart-box"></div></div>
+        <div class="serv-foot">新品首发特惠 ¥13,800 · 限时赠送1年维护</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FLYWHEEL ========== -->
+<section class="section section-dark" id="flywheel" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label section-label-light">增长飞轮</span>
+      <h2 class="section-title section-title-light">闭环自运转 · 飞轮式增长</h2>
+      <p class="section-desc section-desc-light">
+        公域获客 → 私域沉淀 → AI转化 → 数据裂变，形成自运转的增长飞轮，让企业营销 <strong>"自己会转"</strong>。
+      </p>
+    </div>
+    <div class="flywheel-track">
+      <svg class="flywheel-svg" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(201,149,61,0.3)"/>
+            <stop offset="100%" stop-color="rgba(201,149,61,0.8)"/>
+          </linearGradient>
+          <linearGradient id="arrowGrad2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(220,170,92,0.3)"/>
+            <stop offset="100%" stop-color="rgba(220,170,92,0.8)"/>
+          </linearGradient>
+        </defs>
+        <line class="flywheel-arrow-line" x1="280" y1="100" x2="870" y2="100" stroke="url(#arrowGrad)" stroke-width="2" stroke-dasharray="590" stroke-dashoffset="590"/>
+        <polygon class="flywheel-arrow-head" points="870,94 885,100 870,106" fill="rgba(201,149,61,0.7)"/>
+      </svg>
+      <div class="flywheel-steps">
+        <div class="flywheel-step" data-reveal>
+          <div class="flywheel-step-num">01</div>
+          <div class="flywheel-icon">📹</div>
+          <h4>公域抓流量</h4>
+          <p>AI批量生产短视频与图文内容，多平台自动分发矩阵</p>
+        </div>
+        <div class="flywheel-step" data-reveal>
+          <div class="flywheel-step-num">02</div>
+          <div class="flywheel-icon">📥</div>
+          <h4>私域接流量</h4>
+          <p>AI自动加粉拉群，智能识别意向客户，沉淀至私域池</p>
+        </div>
+        <div class="flywheel-step" data-reveal>
+          <div class="flywheel-step-num">03</div>
+          <div class="flywheel-icon">🤖</div>
+          <h4>AI转化</h4>
+          <p>AI销冠智能体7×24h跟单促单，客户分层精准培育</p>
+        </div>
+        <div class="flywheel-step" data-reveal>
+          <div class="flywheel-step-num">04</div>
+          <div class="flywheel-icon">🔄</div>
+          <h4>数据裂变</h4>
+          <p>数据反哺优化策略，客户推荐裂变，体系自主迭代</p>
+        </div>
+      </div>
+    </div>
+    <div class="flywheel-loop" data-reveal>
+      <span class="flywheel-loop-text">形成 <strong>自己会转</strong> 的AI营销军团 · 已累计沉淀 <strong>1000万+</strong> 私域流量</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="section" id="stats" data-section>
+  <div class="container">
+    <div class="stats-section" data-reveal>
+      <div class="stats-bg-particles"></div>
+      <div class="stats-grid">
+        <div class="stats-quote" data-reveal>
+          <div class="stats-quote-icon">"</div>
+          <p>一台电脑，顶100个员工——荔猫AI超级员工，让企业营销告别低效与高成本，开启AI智能营销新时代。</p>
+          <cite>— 荔猫AI · AI行业生态服务商</cite>
+        </div>
+        <div class="stats-numbers" data-reveal>
+          <div class="stat-item">
+            <div class="stat-num" data-count-target="30">0<span class="stat-unit">万+</span></div>
+            <div class="stat-label">全网用户</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-count-target="1000">0<span class="stat-unit">万+</span></div>
+            <div class="stat-label">私域流量沉淀</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-count-target="1.6">0<span class="stat-unit">亿</span></div>
+            <div class="stat-label">赛道验证业绩</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-count-target="400">0<span class="stat-unit">+</span></div>
+            <div class="stat-label">微信矩阵账号</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CASES ========== -->
+<section class="section" id="cases" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label">行业案例</span>
+      <h2 class="section-title">全行业适配 · 定制AI工作流</h2>
+      <p class="section-desc">覆盖制造、美业、餐饮、教育、外贸、电商等全行业，已服务多家标杆客户。</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card" data-reveal data-parallax>
+        <div class="case-bg">
+          <div class="case-bg-icon">🏭</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag-row">
+            <span class="case-tag">智能制造</span>
+            <span class="case-tag case-tag-green">已投产</span>
+          </div>
+          <h3>AI短视频获客 + 数字人直播</h3>
+          <p>通过AI批量生产行业短视频，数字人7×24h直播引流，精准触达目标客户，线索量倍增。</p>
+          <div class="chart-wrap" data-chart="case-zhizao"><div class="chart-box"></div></div>
+          <div class="case-results-alt">
+            <div class="case-result-item">
+              <span class="case-result-val">200%+</span>
+              <span class="case-result-label">线索量提升</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">-80%</span>
+              <span class="case-result-label">获客成本</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">7×24h</span>
+              <span class="case-result-label">无人直播</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-shine"></div>
+      </div>
+      <div class="case-card" data-reveal data-parallax>
+        <div class="case-bg">
+          <div class="case-bg-icon">💄</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag-row">
+            <span class="case-tag">美业</span>
+            <span class="case-tag case-tag-green">复购标杆</span>
+          </div>
+          <h3>私域AI智能跟单 · 复购率提升</h3>
+          <p>AI销冠智能体自动跟进客户，智能识别意向等级，精准推送营销内容，大幅提升客户复购率。</p>
+          <div class="chart-wrap" data-chart="case-meiye"><div class="chart-box"></div></div>
+          <div class="case-results-alt">
+            <div class="case-result-item">
+              <span class="case-result-val">-60%</span>
+              <span class="case-result-label">成交周期</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">+40%</span>
+              <span class="case-result-label">转化率</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">2w+</span>
+              <span class="case-result-label">私域客户</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-shine"></div>
+      </div>
+      <div class="case-card" data-reveal data-parallax>
+        <div class="case-bg">
+          <div class="case-bg-icon">🛒</div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag-row">
+            <span class="case-tag">电商</span>
+            <span class="case-tag case-tag-green">GMV倍增</span>
+          </div>
+          <h3>AI短视频带货 · GMV倍增</h3>
+          <p>AI自动生成带货短视频，多平台矩阵发布，智能客服全天候转化，实现GMV持续增长。</p>
+          <div class="chart-wrap" data-chart="case-dianshang"><div class="chart-box"></div></div>
+          <div class="case-results-alt">
+            <div class="case-result-item">
+              <span class="case-result-val">+50%</span>
+              <span class="case-result-label">广告ROI</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">-50%</span>
+              <span class="case-result-label">人力成本</span>
+            </div>
+            <div class="case-result-item">
+              <span class="case-result-val">4.5x</span>
+              <span class="case-result-label">GMV增长</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-shine"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ACADEMY ========== -->
+<section class="section section-accent-bg" id="academy" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label section-label-light">荔猫AI商学院</span>
+      <h2 class="section-title section-title-light">学·练·赛·用 四位一体</h2>
+      <p class="section-desc section-desc-light">
+        项目式学习 + 师徒制培养 + 社群化运营，30+行业实战专家授课，拒绝纸上谈兵，只教能落地的赚钱本领。
+      </p>
+    </div>
+    <div class="academy-grid">
+      <div class="academy-card" data-reveal>
+        <div class="academy-card-top">
+          <span class="academy-cat">基础实战营</span>
+          <span class="academy-duration">3天</span>
+        </div>
+        <h3>AI训练师基础实战营</h3>
+        <p>AI工具入门、生文/图/PPT/视频、IP打造、拍摄技巧、起号教程、变现路径。</p>
+      </div>
+      <div class="academy-card academy-card-featured" data-reveal>
+        <div class="academy-card-top">
+          <span class="academy-cat">深度训练营</span>
+          <span class="academy-duration">5天</span>
+        </div>
+        <h3>AI训练师深度训练营</h3>
+        <p>高阶Prompt、企业网站搭建、公私域打通、精准获客系统、AI内容矩阵。</p>
+        <div class="academy-badge">推荐</div>
+      </div>
+      <div class="academy-card" data-reveal>
+        <div class="academy-card-top">
+          <span class="academy-cat">操盘营</span>
+          <span class="academy-duration">7天</span>
+        </div>
+        <h3>AI训练师操盘营</h3>
+        <p>企业AI诊断、智能体定制、内容矩阵、私域深化、商业变现闭环。</p>
+      </div>
+    </div>
+    <div class="academy-specials" data-reveal>
+      <div class="academy-special">
+        <span class="academy-special-badge">AI漫剧创作</span>
+        <span class="academy-special-price">¥3,680 / ¥5,680</span>
+        <span class="academy-special-desc">从零到一掌握AI漫剧制作全流程</span>
+      </div>
+      <div class="academy-special">
+        <span class="academy-special-badge">AI智能体实战</span>
+        <span class="academy-special-price">¥3,680 / ¥6,980</span>
+        <span class="academy-special-desc">企业级AI智能体搭建与部署</span>
+      </div>
+      <div class="academy-special">
+        <span class="academy-special-badge">AI实用场景密训营</span>
+        <span class="academy-special-price">¥13,800</span>
+        <span class="academy-special-desc">含就业 · 30天密集实训，就业导师全程护航</span>
+      </div>
+      <div class="academy-special academy-special-ghost">
+        <span class="academy-special-badge">特色课堂</span>
+        <span class="academy-special-price">免费</span>
+        <span class="academy-special-desc">AI亲子体验沙龙 &amp; AI银发专享课堂</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEPLOYMENT ========== -->
+<section class="section" id="deploy" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label">私有化部署</span>
+      <h2 class="section-title">打造企业专属AI营销系统</h2>
+      <p class="section-desc">一次购买，终身使用。独立部署、数据安全、品牌自定义。</p>
+    </div>
+    <div class="deploy-grid">
+      <div class="deploy-card" data-reveal>
+        <div class="deploy-card-icon">🛡️</div>
+        <h3>部署特点</h3>
+        <ul class="deploy-list">
+          <li>完全独立的系统后台与服务器</li>
+          <li>品牌名称、logo、界面设计均可自定义</li>
+          <li>数据存储在企业独立服务器，安全可控</li>
+          <li>半小时完成部署与调试</li>
+          <li>1年内免费系统功能升级与优化</li>
+          <li>1V1售后工程师与运营顾问专属服务</li>
+        </ul>
+      </div>
+      <div class="deploy-card deploy-card-price" data-reveal>
+        <div class="deploy-card-icon">🏷️</div>
+        <h3>首发价格</h3>
+        <div class="deploy-price-wrap">
+          <div class="deploy-price">¥13,800</div>
+          <div class="deploy-price-original">¥39,800</div>
+        </div>
+        <ul class="deploy-list">
+          <li>支持无限量开通用户账号和代理商账号</li>
+          <li>系统环境：Ubuntu 22.04</li>
+          <li>云服务器：2核4G 5M带宽（可协助选配）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section" id="faq" data-section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">常见问题</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <div class="faq-question" data-faq>
+          <span>产品需要算力吗？</span>
+          <div class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            系统已对接sora2和deepseek两大核心平台，企业只需对接自己的账号key即可使用。deepseek算力消耗极低，sora2按官方标准收费。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" data-faq>
+          <span>截流/微信会封号吗？</span>
+          <div class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            使用RPA技术，模拟真人操控电脑鼠标和键盘，无任何平台破解行为，完全符合各平台规则。微信操作无需扫码授权，不走协议不走破解，从技术上彻底规避封号风险。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" data-faq>
+          <span>和同行比有什么优势？</span>
+          <div class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            ①支持私有化部署，可对外开通商家和代理商账号；②新品首发价格远低于最终定价；③源头技术公司，自主研发，功能更新快；④电脑端+飞书手机端双端联动，营销+办公一体化。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" data-faq>
+          <span>系统操作复杂吗？</span>
+          <div class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            系统做了极致简化设计，所有功能模块化、可视化，普通员工简单培训即可快速掌握，无需专业技术人员。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" data-faq>
+          <span>可以试用吗？</span>
+          <div class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            私有化部署需配置大量行业关键词、话术、工作流，暂无法免费试用。但可提供远程腾讯会议1对1定制化演示（约40分钟）。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section" id="contact" data-section>
+  <div class="container">
+    <div class="cta-section" data-reveal>
+      <div class="cta-glow"></div>
+      <h2>让AI不再只是概念，<br>而是触手可及的降本工具</h2>
+      <p>预约一次1对1定制化演示，我们的AI专家将与您深入沟通，为您量身打造最合适的营销方案。</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-accent btn-lg btn-glow" data-modal="demo">
+          <span>预约演示</span>
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#" class="btn btn-ghost btn-lg">
+          <span>获取产品介绍</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEMO MODAL ========== -->
+<div class="modal-overlay" id="demoModal">
+  <div class="modal">
+    <button class="modal-x" id="modalClose">&times;</button>
+    <div class="modal-head">
+      <h3>预约一对一演示</h3>
+      <p>填写信息，我们的AI顾问将在 <strong>24小时内</strong> 与您联系，量身定制专属方案。</p>
+    </div>
+    <form class="modal-form" id="demoForm">
+      <div class="form-grp">
+        <label for="field-name">姓名 <span class="form-req">*</span></label>
+        <input type="text" id="field-name" required placeholder="请输入您的姓名">
+      </div>
+      <div class="form-row">
+        <div class="form-grp">
+          <label for="field-email">邮箱 <span class="form-req">*</span></label>
+          <input type="email" id="field-email" required placeholder="your@email.com">
+        </div>
+        <div class="form-grp">
+          <label for="field-phone">手机号 <span class="form-req">*</span></label>
+          <input type="tel" id="field-phone" required placeholder="请输入手机号">
+        </div>
+      </div>
+      <div class="form-grp">
+        <label for="field-industry">行业备注</label>
+        <textarea id="field-industry" rows="3" placeholder="请简单描述您的行业和需求，方便我们为您定制方案（选填）"></textarea>
+      </div>
+      <button type="submit" class="btn btn-accent btn-glow modal-submit">提交预约</button>
+    </form>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4cd964" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3>提交成功！</h3>
+      <p>感谢您的预约，我们的AI顾问将在24小时内与您取得联系。<br>请保持手机畅通。</p>
+      <button class="btn btn-ghost" id="modalSuccessBtn">知道了</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand-col">
+        <a href="#" class="nav-brand" style="font-size:18px">
+          <img src="/logo.svg" alt="荔猫AI" class="nav-brand-logo" style="height:28px">
+          <span class="nav-brand-text">荔猫AI</span>
+        </a>
+        <p class="footer-brand-desc">
+          AI行业生态服务商 · 技术平台 + 教育培训 + 全托管服务。让天下人拥抱AI，掌控AI，搭建自己的AI营销军团。
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="微信" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5q0 2.5-1.5 4t-4 1.5q-1 0-1.8-.3l-2 .6.5-1.7Q7 14.5 7 12.5q0-2.5 1.5-4T12.5 7q2.5 0 4 1.5t1.5 4z"/><path d="M20 8Q7-2 12 3m-1 4.5m5 2"/><path d="M7 8c0-1.5.8-2.5 2-3"/></svg>
+          </a>
+          <a href="#" aria-label="邮箱" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>产品</h5>
+        <ul>
+          <li><a href="#">LM.CLAW超级SaaS平台</a></li>
+          <li><a href="#">AI销冠智能体</a></li>
+          <li><a href="#">AI数字人</a></li>
+          <li><a href="#">AI工具矩阵</a></li>
+          <li><a href="#">私有化部署</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>商学院</h5>
+        <ul>
+          <li><a href="#">AI训练师基础营</a></li>
+          <li><a href="#">AI训练师深度营</a></li>
+          <li><a href="#">AI训练师操盘营</a></li>
+          <li><a href="#">AI漫剧创作</a></li>
+          <li><a href="#">AI智能体实战</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>联系</h5>
+        <ul>
+          <li><a href="https://www.limaoclaw.cn" target="_blank">www.limaoclaw.cn</a></li>
+          <li><a href="#">预约咨询</a></li>
+          <li><a href="#">合作洽谈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span class="foot-copy">© 2026 荔猫AI · All rights reserved.</span>
+    </div>
+    <div class="foot-masthead">
+      <span class="foot-masthead-wordmark">荔猫<span class="foot-masthead-accent">AI</span></span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

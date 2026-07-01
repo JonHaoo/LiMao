@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>荔猫AI · 后台管理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+<nav class="admin-nav">
+  <div class="admin-nav-inner">
+    <a href="/admin" class="admin-brand">
+      <span class="admin-brand-icon">L</span>
+      <span>荔猫AI · 后台管理</span>
+    </a>
+    <div class="admin-nav-right">
+      <a href="http://localhost:5173" target="_blank" class="admin-back-link">← 返回官网</a>
+    </div>
+  </div>
+</nav>
+
+<main class="admin-main">
+  <div class="admin-header">
+    <div>
+      <h1 class="admin-title">预约演示管理</h1>
+      <p class="admin-subtitle">管理用户提交的预约演示申请</p>
+    </div>
+    <button class="admin-refresh" id="refreshBtn">↻ 刷新</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="admin-stats" id="statsContainer">
+    <div class="admin-stat-card"><span class="admin-stat-num" id="statTotal">-</span><span class="admin-stat-label">全部</span></div>
+    <div class="admin-stat-card"><span class="admin-stat-num" id="statPending">-</span><span class="admin-stat-label">待联系</span></div>
+    <div class="admin-stat-card"><span class="admin-stat-num" id="statContacted">-</span><span class="admin-stat-label">已联系</span></div>
+    <div class="admin-stat-card"><span class="admin-stat-num" id="statToday">-</span><span class="admin-stat-label">今日新增</span></div>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="admin-tabs">
+    <button class="admin-tab is-active" data-filter="all">全部</button>
+    <button class="admin-tab" data-filter="pending">待联系</button>
+    <button class="admin-tab" data-filter="contacted">已联系</button>
+    <button class="admin-tab" data-filter="converted">已转化</button>
+  </div>
+
+  <!-- Table -->
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>姓名</th>
+          <th>邮箱</th>
+          <th>手机号</th>
+          <th>行业备注</th>
+          <th>提交时间</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="8" class="admin-empty">加载中...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<div class="admin-toast" id="toast"></div>
+
+<script type="module" src="/admin/app.js"></script>
+</body>
+</html>

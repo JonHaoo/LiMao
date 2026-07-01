@@ -1,0 +1,6 @@
+node_modules/
+dist/
+server/node_modules/
+server/limao.db
+.DS_Store
+*.log
