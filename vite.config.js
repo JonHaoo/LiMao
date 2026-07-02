@@ -12,11 +12,21 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    commonjsOptions: {
-      transformMixedEsModules: true,
+    target: 'es2020',
+    cssCodeSplit: false,
+    sourcemap: false,
+    reportCompressedSize: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('gsap') || id.includes('lenis')) {
+            return 'vendor-anim';
+          }
+        },
+      },
     },
   },
   optimizeDeps: {
-    include: ['echarts'],
+    include: [],
   },
 });
