@@ -20,7 +20,7 @@
 
 ### 前置条件
 
-- Node.js ≥ 18（服务器和本地都需要）
+- Node.js ≥ 22（服务器和本地都需要）
 - 服务器已安装 PM2：`npm install -g pm2`
 - 项目仓库：`git clone https://github.com/JonHaoo/LiMao.git`
 
@@ -42,7 +42,7 @@
 | 项目名称 | `limao` |
 | 运行用户 | `www` |
 | 端口 | `3001` |
-| Node 版本 | 18+ |
+| Node 版本 | 22+ |
 
 点击启动（宝塔会自动用 PM2 管理进程，名称自动设为 `limao`）。
 
@@ -95,7 +95,7 @@ location / {
 ### 本地环境要求
 
 ```bash
-node -v     # ≥ 18
+node -v     # ≥ 22
 npm -v      # ≥ 9
 git --version
 ssh-keygen -t ed25519 -C "your@email.com"     # 生成 SSH 密钥
