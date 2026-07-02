@@ -231,9 +231,18 @@ app.get('*', (req, res) => {
 
 // ── Start ──
 initDbWithAuth().then(() => {
-  app.listen(PORT, () => {
+  const server = app.listen(PORT, () => {
     console.log('LiMao production server running on port', PORT);
     console.log('First start: register an admin at http://localhost:' + PORT + '/admin/login');
     console.log('Admin: http://localhost:' + PORT + '/admin');
+  });
+
+  // Graceful shutdown: finish in-flight requests then exit
+  process.on('SIGTERM', () => {
+    console.log('Received SIGTERM, shutting down gracefully...');
+    server.close(() => {
+      console.log('Server closed, exiting.');
+      process.exit(0);
+    });
   });
 }).catch(err => { console.error('Failed to init DB:', err); process.exit(1); });
