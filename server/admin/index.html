@@ -16,12 +16,6 @@
       <span>荔猫AI · 后台管理</span>
     </a>
     <div class="admin-nav-right">
-      <span class="admin-userinfo" id="userInfo" style="display:none">
-        <span class="admin-username" id="userName"></span>
-        <button class="admin-btn-password" id="changePwBtn">修改密码</button>
-        <button class="admin-logout" id="logoutBtn">退出</button>
-      </span>
-      <a href="http://localhost:5173" target="_blank" class="admin-back-link">← 官网首页</a>
     </div>
   </div>
 </nav>
@@ -74,56 +68,6 @@
 </main>
 
 <div class="admin-toast" id="toast"></div>
-
-<!-- Password Change Modal -->
-<div class="admin-modal-overlay" id="pwModal">
-  <div class="admin-modal">
-    <div class="admin-modal-header">
-      <span class="admin-modal-title">修改密码</span>
-      <button class="admin-modal-close" id="pwModalClose">&times;</button>
-    </div>
-    <form id="pwForm" class="admin-modal-body">
-      <div class="auth-field">
-        <label class="auth-label">当前密码</label>
-        <input class="auth-input" type="password" id="pwCurrent" placeholder="输入当前密码" required>
-      </div>
-      <div class="auth-field">
-        <label class="auth-label">新密码（至少6位）</label>
-        <input class="auth-input" type="password" id="pwNew" placeholder="输入新密码" required minlength="6">
-      </div>
-      <div class="auth-field">
-        <label class="auth-label">确认新密码</label>
-        <input class="auth-input" type="password" id="pwConfirm" placeholder="再次输入新密码" required>
-      </div>
-      <button class="auth-btn" type="submit">保存修改</button>
-      <p class="auth-error" id="pwError"></p>
-    </form>
-  </div>
-</div>
-
-<script>
-// Check token from URL or localStorage
-(function() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var token = urlParams.get('token') || localStorage.getItem('admin_token');
-  if (!token) { window.location.href = '/admin/login'; return; }
-  // Save URL token to localStorage and clean URL
-  if (urlParams.get('token')) {
-    localStorage.setItem('admin_token', token);
-    window.history.replaceState({}, document.title, '/admin');
-  }
-  fetch('/api/auth/verify', { headers: { 'Authorization': 'Bearer ' + token } })
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      if (!d.valid) {
-        localStorage.removeItem('admin_token');
-        localStorage.removeItem('admin_username');
-        window.location.href = '/admin/login';
-      }
-    })
-    .catch(function() {});
-})();
-</script>
 
 <script type="module" src="/admin/app.js"></script>
 </body>
