@@ -28,6 +28,19 @@ export async function initDb() {
   return db;
 }
 
+export async function initDbWithAuth() {
+  await initDb();
+  db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    role TEXT DEFAULT 'admin',
+    created_at TEXT DEFAULT (datetime('now', '+8 hours'))
+  )`);
+  persist();
+}
+
 export function persist() {
   if (!db) return;
   const data = db.export();
@@ -52,6 +65,9 @@ export function doRun(sql, params = []) {
   db.run(sql, params);
   persist();
   // Query the last inserted rowid
+  const r = queryOne('SELECT last_insert_rowid() as last_id');
+  const lastInsertRowid = (r && r.last_id) ? Number(r.last_id) : 0;
+  return { changes: db.getRowsModified(), lastInsertRowid: lastInsertRowid };
 }
 
 export function count(sql, params = []) {
