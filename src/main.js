@@ -93,7 +93,127 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Hero card static — no floating animation
+ // Hero card static — no floating animation
+
+// ─── 6b. LIVE TERMINAL NUMBERS ───
+  (function initTerminalLive() {
+    const body = document.querySelector('.hero-card-body');
+    if (!body) return;
+
+    // Log line templates for the LM.CLAW terminal
+    const lineDefs = [
+      `<span class="hl">$</span> AI内容矩阵 · 今日已生成 <span class="acc" data-min="12" data-max="48">42</span> 条`,
+      `<span class="hl">$</span> 短视频分发 · 覆盖 <span class="acc" data-min="5" data-max="18">11</span> 个账号`,
+      `<span class="cm">[INFO]</span> 私域流量池 · 当前总人数 <span class="acc" data-min="38200" data-max="42800" data-fmt="fmt">40,128</span>`,
+      `<span class="cm">[DATA]</span> 线索采集 · 新增 <span class="acc" data-min="200" data-max="1800" data-fmt="fmt">1,284</span> 条`,
+      `<span class="cm">[FLOW]</span> 私域加粉 · 通过率 <span class="acc" data-min="85" data-max="96" data-fmt="pct" data-mode="range">92%</span>`,
+      `<span class="cm">[FLOW]</span> 公域→私域 · 今日沉淀 <span class="acc" data-min="120" data-max="650" data-fmt="fmt">450</span> 人`,
+      `<span class="cm">[SALES]</span> 智能跟单 · 今日成交 <span class="acc" data-min="3" data-max="18">8</span> 单`,
+      `<span class="cm">[SALES]</span> 高意向客户 · 识别 <span class="acc" data-min="15" data-max="60">32</span> 人`,
+      `<span class="cm">[CONTENT]</span> 爆款视频 · 播放量 <span class="acc" data-min="5000" data-max="85000" data-fmt="fmt">45,230</span>`,
+      `<span class="hl">$</span> 数据同步 · 完成 <span class="acc" data-min="6" data-max="12">9</span> 个平台`,
+      `<span class="hl">$</span> 数字人直播 · 时长 <span class="acc" data-min="3" data-max="12" data-fmt="suffix">7h</span>`,
+      `<span class="hl">$</span> 矩阵巡检 · 账号健康率 <span class="acc" data-min="92" data-max="100" data-fmt="pct" data-mode="range">96%</span>`,
+      `<span class="cm">[SYSTEM]</span> 内存占用 · <span class="acc" data-min="32" data-max="68" data-fmt="pct" data-mode="range">45%</span> · 运行正常`,
+      `<span class="cm">[INFO]</span> 智能客服 · 今日咨询量 <span class="acc" data-min="340" data-max="890">560</span>`,
+      `<span class="cm">[FLOW]</span> 会话窗口 · 活跃 <span class="acc" data-min="20" data-max="85" data-mode="range">52</span> 个`,
+      `<span class="hl">$</span> GEO智能体 · 曝光提升 <span class="acc" data-min="12" data-max="40" data-fmt="pct">28%</span>`,
+      `<span class="hl">$</span> AI话术优化 · 本日更新 <span class="acc" data-min="2" data-max="8">5</span> 套`,
+      `<span class="cm">[INFO]</span> 飞书指令 · 已处理 <span class="acc" data-min="15" data-max="55">30</span> 条`,
+      `<span class="cm">[SYSTEM]</span> 执行队列 · 任务数 <span class="acc" data-min="12" data-max="47" data-mode="range">28</span>`,
+      `<span class="cm">[DATA]</span> 客户触达 · 成功率 <span class="acc" data-min="78" data-max="95" data-fmt="pct" data-mode="range">87%</span>`,
+    ];
+
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+    function fmt(n) { return n.toLocaleString(); }
+
+    const MAX_VISIBLE = 6;
+
+    // Shuffle and pick 6 lines to display
+    const shuffled = [...lineDefs].sort(() => Math.random() - 0.5);
+    const picked = shuffled.slice(0, 6);
+    const cursor = body.querySelector('.blink-line');
+    const divs = [];
+
+    picked.forEach(html => {
+      const div = document.createElement('div');
+      div.className = 'hero-card-line';
+      div.innerHTML = html;
+      body.insertBefore(div, cursor);
+      divs.push(div);
+    });
+
+    function refreshNumbers() {
+      divs.forEach(div => {
+        div.querySelectorAll('.acc').forEach(el => {
+          const min = parseInt(el.dataset.min);
+          const max = parseInt(el.dataset.max);
+          if (isNaN(min) || isNaN(max)) return;
+
+          // Initialize or read persistent current value
+          if (!el.dataset.value) el.dataset.value = String(min);
+          let val = parseInt(el.dataset.value);
+          const mode = el.dataset.mode || 'grow';
+
+          if (mode === 'range') {
+            // Random walk within [min, max]
+            const delta = randInt(-3, 3);
+            val = Math.max(min, Math.min(max, val + delta));
+          } else {
+            // Gradual increment — step size scales with magnitude
+            let step;
+            if (min < 50)       step = randInt(1, 3);
+            else if (min < 2000) step = randInt(10, 50);
+            else if (min < 50000) step = randInt(200, 1000);
+            else                 step = randInt(500, 3000);
+            val += step;
+          }
+          el.dataset.value = String(val);
+
+          const fmtType = el.dataset.fmt || '';
+          if (fmtType === 'fmt') {
+            el.textContent = val.toLocaleString();
+          } else if (fmtType === 'pct') {
+            el.textContent = val + '%';
+          } else if (fmtType === 'suffix') {
+            // Extract existing suffix character(s) from current text
+            const m = el.textContent.match(/[^\d,.\s]+$/);
+            const suffix = m ? m[0] : '';
+            el.textContent = val + suffix;
+          } else {
+            el.textContent = String(val);
+          }
+        });
+      });
+    }
+
+    function refreshFooter() {
+      const stats = document.querySelectorAll('.hero-card-stat');
+      if (stats.length >= 2) {
+        // AI员工在线 — persist and drift near 100
+        let online = parseInt(stats[0].dataset.value) || 99;
+        online = Math.max(95, Math.min(100, online + randInt(-1, 1)));
+        stats[0].dataset.value = String(online);
+        stats[0].textContent = `${online} 个 AI 员工在线`;
+
+        // 运行时长 — persist and keep incrementing
+        let uptime = parseInt(stats[1].dataset.value) || 128;
+        uptime += randInt(1, 3);
+        stats[1].dataset.value = String(uptime);
+        stats[1].textContent = `7×24h 已运行 ${uptime}h`;
+      }
+    }
+
+    // First refresh after a short boot-like delay, then keep going
+    function scheduleTick() {
+      setTimeout(() => {
+        refreshNumbers();
+        refreshFooter();
+        scheduleTick();
+      }, randInt(1500, 2800));
+    }
+    setTimeout(() => { refreshNumbers(); scheduleTick(); }, 600);
+  })();
 
   // ─── 7. PRODUCT / SERVICE CARD 3D TILT ───
   // Using CSS custom properties with will-change on hover only
