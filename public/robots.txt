@@ -1,0 +1,4 @@
+# robots.txt for 荔猫AI
+User-agent: *
+Allow: /
+Sitemap: https://www.limaoclaw.cn/sitemap.xml

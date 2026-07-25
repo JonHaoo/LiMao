@@ -194,3 +194,62 @@ pwForm.addEventListener('submit', function(e) {
     btn.disabled = false;
   });
 });
+
+// ── Export to CSV ──
+document.getElementById('exportBtn').addEventListener('click', function() {
+  var data = allData;
+  if (!data || !data.length) {
+    showToast('没有数据可导出');
+    return;
+  }
+  
+  var statusMap = { pending: '待联系', contacted: '已联系', converted: '已转化' };
+  
+  // Build CSV content
+  var headers = ['ID', '姓名', '邮箱', '手机号', '行业备注', '提交时间', '状态'];
+  var rows = data.map(function(row) {
+    return [
+      row.id,
+      row.name,
+      row.email,
+      row.phone,
+      row.industry || '',
+      row.created_at,
+      statusMap[row.status] || row.status
+    ];
+  });
+  
+  var csvContent = '\uFEFF'; // BOM for Excel to recognize UTF-8
+  csvContent += headers.join(',') + '\n';
+  rows.forEach(function(row) {
+    var escapedRow = row.map(function(cell) {
+      var s = String(cell);
+      // Escape quotes and wrap in quotes if contains comma or quote
+      if (s.indexOf(',') !== -1 || s.indexOf('"') !== -1 || s.indexOf('\n') !== -1) {
+        return '"' + s.replace(/"/g, '""') + '"';
+      }
+      return s;
+    });
+    csvContent += escapedRow.join(',') + '\n';
+  });
+  
+  // Download
+  var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  var link = document.createElement('a');
+  var url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  
+  var now = new Date();
+  var dateStr = now.getFullYear() + '-' + 
+    String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+    String(now.getDate()).padStart(2, '0') + '_' +
+    String(now.getHours()).padStart(2, '0') + '-' +
+    String(now.getMinutes()).padStart(2, '0');
+  link.setAttribute('download', '\u8354\u732bAI_\u9884\u7ea6\u6570\u636e_' + dateStr + '.csv');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  
+  showToast('\u5BFC\u51fa\u6210\u529F\uFF0C\u5171 ' + data.length + ' \u6761\u8BB0\u5F55');
+});

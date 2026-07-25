@@ -438,4 +438,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (successBtn) successBtn.addEventListener('click', closeModal);
   }
+
+  // ─── 16. YOUXIANG MODAL ───
+  const youxiangModal = document.getElementById('youxiangModal');
+  const youxiangModalClose = document.getElementById('youxiangModalClose');
+  
+  if (youxiangModal) {
+    document.querySelectorAll('[data-modal="youxiang"]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        youxiangModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    function closeYouxiangModal() {
+      youxiangModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    if (youxiangModalClose) youxiangModalClose.addEventListener('click', closeYouxiangModal);
+    youxiangModal.addEventListener('click', (e) => {
+      if (e.target === youxiangModal) closeYouxiangModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && youxiangModal.classList.contains('is-open')) closeYouxiangModal();
+    });
+  }
+
 });

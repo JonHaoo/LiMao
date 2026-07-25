@@ -1489,7 +1489,7 @@ ul { list-style: none; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s;
   will-change: transform;
 }
@@ -1527,7 +1527,7 @@ ul { list-style: none; }
 .stats-img {
   width: 100%;
   height: 160px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   opacity: 0;
   transition: opacity 0.4s, transform 0.6s cubic-bezier(0.22,1,0.36,1);
@@ -1557,7 +1557,7 @@ ul { list-style: none; }
 .academy-card-photo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
   will-change: transform;
@@ -1595,7 +1595,7 @@ ul { list-style: none; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   will-change: transform;
   transition: opacity 0.6s, transform 0.6s cubic-bezier(0.22,1,0.36,1);
@@ -1710,9 +1710,9 @@ ul { list-style: none; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 48px;
+ grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+ gap: 40px;
+ margin-bottom: 48px;
 }
 
 .footer-brand-col .nav-brand { margin-bottom: 12px; display: inline-flex; }
@@ -1975,4 +1975,260 @@ img[loading="lazy"] {
 img[loading="lazy"][complete],
 img[loading="lazy"].loaded {
   opacity: 1;
+}
+/* Contact column */
+.footer-col-contact ul li {
+  margin-bottom: 14px;
+}
+.contact-phone-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-mute);
+}
+.contact-phone-item svg {
+  flex-shrink: 0;
+  color: var(--accent-soft);
+  opacity: 0.7;
+}
+.contact-phone-item a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-soft);
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+.contact-phone-item a:hover {
+  color: var(--accent);
+}
+
+.contact-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.contact-qr-img {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-qr-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.contact-qr-label {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+/* Contact column - prominent (v2) */
+.footer-col-contact {
+  background: var(--accent-tint);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  border: 1px solid var(--border-accent);
+}
+.footer-col-contact h5 {
+  color: var(--accent-soft) !important;
+  font-weight: 700 !important;
+}
+.footer-col-contact .contact-phone-item a {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.footer-col-contact .contact-qr-img {
+  width: 150px;
+  height: 150px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-accent);
+}
+.footer-col-contact .contact-qr-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-soft);
+}
+
+/* ============================================
+   15. 荔猫优享 Section
+   ============================================ */
+.section-youxiang {
+  background: linear-gradient(135deg, #f8f7f5 0%, #f3f0ec 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.youxiang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.youxiang-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 32px 28px 28px;
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  text-align: center;
+}
+.youxiang-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-accent);
+  box-shadow: 0 8px 28px rgba(139,115,85,0.10);
+}
+
+.youxiang-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.youxiang-card h3 {
+  font-size: 18px;
+  font-weight: 650;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.youxiang-card p {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.youxiang-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.youxiang-tags span {
+  padding: 3px 10px;
+  background: var(--accent-tint);
+  border: 1px solid var(--border-accent);
+  font-size: 12px;
+  color: var(--accent-soft);
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+/* Bottom stats area */
+.youxiang-bottom {
+  text-align: center;
+}
+
+.youxiang-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.youxiang-stat-item {
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.youxiang-stat-num {
+  display: block;
+  font-size: 26px;
+  font-weight: 750;
+  color: var(--accent-soft);
+  line-height: 1.2;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+}
+
+.youxiang-stat-unit {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-soft);
+  margin-bottom: 4px;
+}
+
+.youxiang-stat-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-mute);
+  line-height: 1.4;
+}
+
+.youxiang-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.youxiang-hint {
+  font-size: 13px;
+  color: var(--text-mute);
+}
+
+@media (max-width: 960px) {
+  .youxiang-grid { grid-template-columns: 1fr 1fr; }
+  .youxiang-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .youxiang-grid { grid-template-columns: 1fr; }
+  .youxiang-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .youxiang-stat-num { font-size: 22px; }
+}
+
+/* ============================================
+   16. QR Code Modal (for 荔猫优享)
+   ============================================ */
+.modal-qr {
+  max-width: 380px;
+  text-align: center;
+  padding: 48px 36px 40px;
+}
+.modal-qr-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.modal-qr-icon {
+  width: 220px;
+  height: 220px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--border-accent);
+  background: #fff;
+  padding: 8px;
+}
+.modal-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.modal-qr-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.modal-qr-body p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 0;
 }
