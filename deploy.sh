@@ -3,10 +3,11 @@ set -e
 
 # ─── 荔猫AI 热部署脚本 ───
 # 用法: ./deploy.sh <服务器SSH地址> [部署目录]
-# 示例: ./deploy.sh root@your-server.com /www/wwwroot/limao
+# 示例: ./deploy.sh root@your-server.com /www/wwwroot/limaoclaw.cn
 
 SSH_TARGET="${1}"
-DEPLOY_DIR="${2:-/www/wwwroot/limao}"
+DEPLOY_DIR="${2:-/www/wwwroot/limaoclaw.cn}"
+NODE_PATH="/www/server/nodejs/v20.20.2/bin"
 
 if [ -z "$SSH_TARGET" ]; then
   echo "❌ 用法: ./deploy.sh <user@host> [部署目录]"
@@ -14,19 +15,22 @@ if [ -z "$SSH_TARGET" ]; then
   exit 1
 fi
 
-echo "🏗️  1/4 构建前端..."
+echo "🏗️  1/5 构建前端..."
 npm run build
 
-echo "📦 2/4 提交代码..."
+echo "📤 2/5 上传构建文件到服务器..."
+scp -r dist/ "$SSH_TARGET:$DEPLOY_DIR/dist/"
+
+echo "📦 3/5 提交代码..."
 git add -A
 git commit --allow-empty -m "deploy: $(date '+%Y-%m-%d %H:%M')"
 git push origin main
 
-echo "🔗 3/4 连接服务器拉取更新..."
-ssh "$SSH_TARGET" "cd $DEPLOY_DIR && git pull origin main && cd server && npm install && cd .."
+echo "🔗 4/5 连接服务器拉取更新..."
+ssh "$SSH_TARGET" "export PATH=$NODE_PATH:\$PATH && cd $DEPLOY_DIR && git pull origin main && cd server && npm install && cd .."
 
-echo "🚀 4/4 重启服务..."
-ssh "$SSH_TARGET" "cd $DEPLOY_DIR && npx pm2 restart limao --update-env"
+echo "🚀 5/5 重启服务..."
+ssh "$SSH_TARGET" "export PATH=$NODE_PATH:\$PATH && cd $DEPLOY_DIR && npx pm2 restart limao --update-env"
 
 echo ""
 echo "✅ 部署完成！"
