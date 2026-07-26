@@ -19,7 +19,8 @@ echo "🏗️  1/5 构建前端..."
 npm run build
 
 echo "📤 2/5 上传构建文件到服务器..."
-scp -r dist/ "$SSH_TARGET:$DEPLOY_DIR/dist/"
+ssh "$SSH_TARGET" "rm -rf $DEPLOY_DIR/dist && mkdir -p $DEPLOY_DIR/dist"
+tar -C dist -cf - . | ssh "$SSH_TARGET" "cd $DEPLOY_DIR/dist && tar xf -"
 
 echo "📦 3/5 提交代码..."
 git add -A
