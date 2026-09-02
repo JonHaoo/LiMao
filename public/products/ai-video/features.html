@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荔猫短视频Ai剪辑创作系统 - 功能表</title>
+    <link rel="stylesheet" href="ai-video.css">
+    <link rel="stylesheet" href="../assets/site-theme.css">
+    <style>
+        /* 针对功能表页面的特殊样式微调 */
+        .product-table th:first-child,
+        .product-table td:first-child {
+            width: 20% !important;
+            min-width: 150px;
+        }
+
+        .product-table td:nth-child(2) {
+            text-align: left;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding: 24px;
+        }
+
+        .category-cell {
+            background: var(--site-accent-tint) !important;
+            color: var(--primary) !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            vertical-align: middle;
+            border-right: 1px solid var(--border) !important;
+        }
+
+        .tag-new {
+            display: inline-block;
+            background: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            vertical-align: middle;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .tag-hot {
+            display: inline-block;
+            background: var(--site-accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            vertical-align: middle;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .feature-group {
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(21, 155, 157, 0.22);
+            padding-bottom: 4px;
+            width: fit-content;
+        }
+
+        .feature-item {
+            margin-bottom: 10px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .feature-item::before {
+            content: '▹';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+
+        .pricing-table thead th {
+            text-align: left;
+            padding-left: 24px;
+        }
+
+        /* 移动端自适应方案 */
+        @media screen and (max-width: 768px) {
+
+            /* 强制覆盖 styles.css 中的 1100px 限制 */
+            .pricing-wrapper {
+                overflow-x: hidden !important;
+            }
+
+            .product-table,
+            .product-table tbody,
+            .product-table tr,
+            .product-table td {
+                display: block !important;
+                width: 100% !important;
+                min-width: unset !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .product-table thead {
+                display: none !important;
+            }
+
+            .product-table tr {
+                margin-bottom: 20px !important;
+                border: 1px solid var(--border) !important;
+                border-radius: 12px !important;
+                background: rgba(255, 255, 255, 0.02) !important;
+                overflow: hidden !important;
+            }
+
+            /* 核心修复：解决分类单元格堆叠且宽度不对的问题 */
+            .product-table td:first-child,
+            .category-cell {
+                width: 100% !important;
+                min-width: 100% !important;
+                padding: 15px 20px !important;
+                text-align: left !important;
+                background: var(--site-accent-tint) !important;
+                border-bottom: 1px solid var(--border) !important;
+                border-right: none !important;
+                display: block !important;
+            }
+
+            .product-table td:nth-child(2) {
+                padding: 20px !important;
+                width: 100% !important;
+                background: transparent !important;
+            }
+
+            /* 强制隐藏滑动提示 */
+            .scroll-hint {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+
+            .container {
+                padding: 10px !important;
+            }
+
+            header h1 {
+                font-size: 1.5rem !important;
+                padding: 0 10px;
+            }
+
+            header h2 {
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="product-page product-video-page">
+    <header class="site-bar" id="siteBar">
+        <div class="site-container site-bar-inner">
+            <a class="brand" href="/"><img src="/logo.svg" alt="荔猫AI" class="brand-logo"><span class="brand-name">荔猫AI</span></a>
+            <nav class="module-switch" aria-label="产品模块">
+                <a class="module-switch-link" href="../marketing-drainage/index.html">自动化营销引流</a>
+                <a class="module-switch-link" href="../ai-outbound/index.html">AI外呼系统</a>
+                <a class="module-switch-link is-active" href="index.html" aria-current="page">AI视频系统</a>
+                <a class="module-switch-link" href="../geo/index.html">企业GEO</a>
+            </nav>
+            <a class="bar-phone" href="tel:17805655208">178-0565-5208</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="top-nav">
+            <a href="index.html" class="nav-btn">版本价格表</a>
+            <a href="features.html" class="nav-btn active">功能详情说明</a>
+            <a href="/" class="nav-btn">官网首页</a>
+        </nav>
+        <header>
+            <h1>荔猫短视频Ai剪辑创作系统</h1>
+            <h2>功能表 (2025Q4版)</h2>
+            <p class="subtitle">15年行业深耕 | 深度集成 DeepSeek & Sora2 </p>
+        </header>
+
+        <div class="pricing-wrapper">
+            <table class="pricing-table product-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">功能分类</th>
+                        <th style="text-align: center;">核心功能与价值点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 1. 账号与资产管理 -->
+                    <tr>
+                        <td class="category-cell">账号管理</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">多平台全链路支持</span>
+                                <div class="feature-item">
+                                    <b>多平台支持：</b>深度支持抖音、快手、视频号、小红书、B站等主流短视频平台。
+                                    <span class="feature-desc">支持多账号授权绑定、分组管理，一个人可高效运营数百个垂直账号。</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>本地化安全授权 (PC客户端)：</b>本地授权绑定，杜绝云端发布带来的IP重叠限流风险。
+                                </div>
+                                <div class="feature-item">
+                                    <b>数据监控与管理：</b>检测账号在线状态，支持回查历史作品播放、点赞、评论等全维度数据。
+                                </div>
+                                <div class="feature-item">
+                                    <b>云空间存储：</b>默认提供20G企业级oss存储空间，支持全员扫码极速上传素材，支持自动分类与标签管理。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 2. 智能剪辑核心功能 -->
+                    <tr>
+                        <td class="category-cell">智能剪辑核心功能</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">多任务与生成规格</span>
+                                <div class="feature-item">
+                                    <b>多任务流管理：</b>支持多任务并行剪辑，支持历史任务一键复制、全自动保存草稿、实时布局预览。
+                                </div>
+                                <div class="feature-item">
+                                    <b>全规格输出：</b>支持横屏(16:9)、竖屏(9:16)、方屏(1:1)比例切换。
+                                </div>
+                                <div class="feature-item">
+                                    <b>工业级清晰度：</b>支持高清、超清、2K全分辨率输出，素材配音智能匹配画面时长。
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <span class="feature-title">Ai 智能成片矩阵</span>
+                                <div class="feature-item">
+                                    <b>Ai核心集成：</b>【新】深度接入 **DeepSeek R1** 大模型，支持文案结构自动解析、自动拆分、自动批量改写。 <span
+                                        class="tag-new">2025新</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai自动成片：</b>【新】支持 **Ai智能一键成片**，自动识别视频内容截取匹配片段，无需手动添加场景。
+                                </div>
+                                <div class="feature-item">
+                                    <b>全自动脚本剪辑：</b>基于文案内容智能采集匹配素材，支持全局统一文案对应多场景。
+                                </div>
+                                <div class="feature-item">
+                                    <b>0素材创作：</b>【新】支持 **0素材Ai文生图视频生成**，仅凭文案即可批量出片。
+                                </div>
+                                <div class="feature-item">
+                                    <b>热门复刻：</b>【新】智能一键提取热门视频文案，Ai批量创作吸引力标题与文案脚本。
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <span class="feature-title">深度脚本与剧本剪辑</span>
+                                <div class="feature-item">
+                                    <b>自定义多场景脚本：</b>支持不限场景数量，设置多场景对应标题、口播，实现音画同步的剧本效果。
+                                </div>
+                                <div class="feature-item">
+                                    <b>批量策略：</b>支持批量标题组（随机组合）、场景/镜头随机排序、自定义片段截取时长。
+                                </div>
+                                <div class="feature-item">
+                                    <b>智能配音字幕：</b>内置智能口播配音、背景音乐，支持Ai识别音频转字幕（含多音字修正）、智能识别字幕时长。
+                                </div>
+                                <div class="feature-item">
+                                    <b>真人素材合成：</b>支持真人配音素材一键合片，自动识别并生成音画同步字幕。
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <span class="feature-title">画面增强与去重</span>
+                                <div class="feature-item">
+                                    <b>独家逻辑去重：</b>采用“竖向3层随机抽帧”逻辑，100%绝对去重，确保剪辑画面绝不重复。 <span class="tag-new">核心</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>画中画全家桶：</b>支持全局视频画中画、多场景独立画中画，支持批量设置及自定义出入场时长。
+                                </div>
+                                <div class="feature-item">
+                                    <b>视觉特效：</b>内置随机转场、动态特效、多场景独立标题字幕。
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <span class="feature-title">库化资源集成</span>
+                                <div class="feature-item">
+                                    <b>智能素材库：</b>【新】内置海量行业视频/图片素材，支持智能标签搜索与一键合成。
+                                </div>
+                                <div class="feature-item">
+                                    <b>热门模板：</b>Ai自动撰写文案并填充至行业爆款模板，持续更新一键成片库。
+                                </div>
+                                <div class="feature-item">
+                                    <b>爆款图文：</b>【新】接入 DeepSeek 一键生成爆款文案+配套图片，适配小红书、抖音、视频号。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 3. AI 创作引擎 (DeepSeek 赋能) -->
+                    <tr>
+                        <td class="category-cell">AI 创作引擎</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">DeepSeek R1 深度集成 <span class="tag-new">2025新</span></span>
+                                <div class="feature-item">
+                                    <b>智能文案中枢：</b>基于 DeepSeek R1 满血版，支持一键爆款复刻、自动润色、结构化改写。
+                                </div>
+                                <div class="feature-item">
+                                    <b>违规词实时监控：</b>接入百度API+本地敏感词库进行审核（仅供参考），确保文案发布符合平台监管。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai一键创作标题：</b>根据行业热词策略，批量生成带SEO属性的吸引眼球标题。
+                                </div>
+                            </div>
+                            <div class="feature-group">
+                                <span class="feature-title">Ai 文生视频技术 (0素材成片)</span>
+                                <div class="feature-item">
+                                    <b>Ai 创意画视频：</b>通过文字主题，全自动生成原画、配音、BGM 及特效成片。
+                                </div>
+                                <div class="feature-item">
+                                    <b>多维智能创作：</b>支持根据“行业+产品+风格”智能输出原创文案，支持 10+ 种视频画面风格切换。
+                                </div>
+                                <div class="feature-item">
+                                    <b>自动化与自定义：</b>支持自动镜头数量匹配、口播字幕文案生成、视频分辨率及比例自由设置。
+                                </div>
+                                <div class="feature-item">
+                                    <b>个性化元素：</b>支持自定义口播配音、背景音乐 (BGM) 等核心创作元素。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai 图生视频 (Pro) & Sora2：</b>支持静态产品图转动感视频，支持 5-100 秒超长多镜头分镜成片。 <span
+                                        class="tag-hot">热</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>Sora2 口播视频：</b>先进的图文生成口播技术，一张产品图片即可生成真人级别的口播视频，音画同步效果。
+                                </div>
+                            </div>
+                            <div class="feature-group">
+                                <span class="feature-title">Ai 图片创意技术</span>
+                                <div class="feature-item">
+                                    <b>Ai 图生图：</b>支持指令改图、图片模仿、更换商品/背景、模特换脸/换衣等全场景改图。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai 图生视频：</b>自动识别图片内容生成 5-10 秒动画，支持自定义首尾帧，结果自动存入素材库。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai 图生视频 Pro：</b>支持多镜头自由组合，单次可添加最多 10 个镜头。
+                                </div>
+                                <div class="feature-item">
+                                    <b>全自动内容辅助：</b>支持图片内容智能识别、自动创作配套口播文案。
+                                </div>
+                                <div class="feature-item">
+                                    <b>深度自定义：</b>支持为图片生成的视频自定义口播配音、背景音乐 (BGM) 等品牌元素。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 4. 数字人克隆与语音 -->
+                    <tr>
+                        <td class="category-cell">数字人、语音克隆</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">1:1 AI 数字分身</span>
+                                <div class="feature-item">
+                                    <b>形象复刻技术：</b>采集3-5分钟真人视频，克隆出动作、神态、微表情完全一致的数字人分身。
+                                </div>
+                                <div class="feature-item">
+                                    <b>视频批量对口型：</b>将自定义成片中的人物口型与新的口播文案音频像素级对齐，效果高度真实。 <span class="tag-new">黑科技</span>
+                                </div>
+                            </div>
+                            <div class="feature-group">
+                                <span class="feature-title">高保真语音克隆</span>
+                                <div class="feature-item">
+                                    <b>专属音色库：</b>克隆用户专属音色，支持情绪调节、多语言播报，用于平台批量剪辑任务的视频配音。
+                                </div>
+                                <div class="feature-item">
+                                    <b>智能口播音频：</b>集成上百种拟真人音色，支持多场景自动配制旁白及背景环境音。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 5. 智能触客与分发营销 -->
+                    <tr>
+                        <td class="category-cell">分发与营销</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">智能分发矩阵</span>
+                                <div class="feature-item">
+                                    <b>全平台自动去重分发：</b>支持定时发布、分布式任务调度，自动处理多平台审核风险。
+                                </div>
+                                <div class="feature-item">
+                                    <b>SEO关键词策略生成：</b>批量抓取行业大盘热词，自动嵌入视频描述与Tag标签。
+                                </div>
+                                <div class="feature-item">
+                                    <b>特色挂载功能：</b>支持在发布视频时自动挂载 POI 门店、抖音小程序、团购、购物车等。
+                                </div>
+                            </div>
+                            <div class="feature-group">
+                                <span class="feature-title">线下引流与矩阵裂变</span>
+                                <div class="feature-item">
+                                    <b>H5分享发布 (爆店码)：</b>支持扫码自动发片，通过达人/员工朋友圈及群聊实现低成本几何倍级裂变。
+                                </div>
+                                <div class="feature-item">
+                                    <b>NFC 碰一碰发布/营销：</b>支持手机一触即发，支持美团/大众点评/携程一键点评及引流私域。 <span class="tag-hot">必选</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>视频智能回收：</b>监控发布状态，未发布成功的素材颗粒智能回滚至待发池，资源利用率提升300%。
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <span class="feature-title">SEO 关键词与拓词工具</span>
+                                <div class="feature-item">
+                                    <b>关键词拓词生成：</b>支持 Ai 批量创作不限数量的行业关键词，支持一键导出为 TXT 文本。
+                                </div>
+                                <div class="feature-item">
+                                    <b>热门词智能拓词工具：</b>【新】支持智能托词工具，实时抓取行业搜索热词。 <span class="tag-new">2025新</span>
+                                </div>
+                                <div class="feature-item">
+                                    <b>关键词策略组：</b>支持创建不限数量的策略组，用于批量派生视频文案与发布标题。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai 批量创作赋能：</b>支持通过 Ai 批量生成不限数量的关键词，并基于策略组自动生成发布标题。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 6. 互动管理与线索中心 -->
+                    <tr>
+                        <td class="category-cell">互动管理与线索</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">私域闭环转化</span>
+                                <div class="feature-item">
+                                    <b>私信/评论聚合收件箱：</b>跨账号、消息集中处理，支持一键回访潜在客户。
+                                </div>
+                                <div class="feature-item">
+                                    <b>Ai智能自动回复：</b>根据用户咨询内容自动化知识点回复，提升账号交互权重的。
+                                </div>
+                                <div class="feature-item">
+                                    <b>支持平台：</b>支持抖音、视频号平台的私信、评论内容的回复。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- 7. 系统运维与管理 -->
+                    <tr>
+                        <td class="category-cell">团队管理</td>
+                        <td>
+                            <div class="feature-group">
+                                <span class="feature-title">子账号管理功能</span>
+                                <div class="feature-item">
+                                    <b>团队子账号权限：</b>支持添加管理子账号，关闭激活子账号权限。
+                                </div>
+                                <div class="feature-item">
+                                    <b>算力值划拨：</b>支持算力值划拨，监控子账号算力使用情况。
+                                </div>
+                                <div class="feature-item">
+                                    <b>子账号权限分离：</b>子账号数据独立，可自行管理各项剪辑任务及功能使用。
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="notes">
+                <h3>系统功能补充说明：</h3>
+                <ol>
+                    <li><b>算力计费说明：</b>系统中各 AI 功能（如 DeepSeek 创作、数字人视频合成、2K超清渲染等功能）将根据计算资源消耗扣除相应比例算力。</li>
+                    <li><b>平台政策合规：</b>系统所有发布接口均基于官方合法合规协议开发，用户需严格遵守各短视频平台的内容审核准则。</li>
+                    <li><b>数据隐私保护：</b>账号授权及素材资产均在客户本机电脑保存，不会上传云端，确保企业核心资产安全。</li>
+                    <li><b>功能迭代计划：</b>AI 视频人物替换、Sora2 生成等更多功能目前处于高频更新阶段，请留意系统更新公告。</li>
+                </ol>
+            </div>
+            <p class="footer-disclaimer">系统性能指标受网络环境及硬件配置影响，最终功能以线上实际运行版本为准。本页面描述仅供参考。</p>
+        </footer>
+    </div>
+
+    <footer class="module-footer">
+        <div class="site-container footer-inner">
+            <a class="brand" href="/"><img src="/logo.svg" alt="荔猫AI" class="brand-logo"><span class="brand-name">荔猫AI</span></a>
+            <p>AI视频系统 · 功能与能力说明</p><span>© 2026 荔猫AI</span>
+        </div>
+    </footer>
+    <div class="scroll-hint">← 左右滑动查阅功能详情 →</div>
+    <script src="../assets/products.js"></script>
+
+</body>
+
+</html>

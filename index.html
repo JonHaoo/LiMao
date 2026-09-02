@@ -240,15 +240,25 @@
       <span class="nav-brand-text">荔猫AI</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#products" class="nav-link" data-nav>产品</a>
+      <div class="nav-item nav-has-menu">
+        <a href="#products" class="nav-link nav-menu-link" data-nav>
+          产品中心
+          <svg class="nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-menu-panel">
+          <a href="#products" data-nav>核心产品总览</a>
+          <a href="/products/marketing-drainage/index.html">全平台自动化营销引流工具</a>
+          <a href="/products/ai-outbound/index.html">AI外呼系统（AI电销机器人）</a>
+          <a href="/products/ai-video/index.html">AI视频系统</a>
+          <a href="/products/geo/index.html">企业GEO</a>
+        </div>
+      </div>
       <a href="#capabilities" class="nav-link" data-nav>核心能力</a>
       <a href="#flywheel" class="nav-link" data-nav>增长飞轮</a>
       <a href="#youxiang" class="nav-link" data-nav>荔猫优享</a>
       <a href="#cases" class="nav-link" data-nav>案例</a>
       <a href="#academy" class="nav-link" data-nav>商学院</a>
       <a href="#faq" class="nav-link" data-nav>FAQ</a>
-      <a href="/geo.html" class="nav-link" data-nav>企业GEO</a>
-      <a href="/limao-price/limao.html" class="nav-link">AI视频系统</a>
       <a href="#contact" class="nav-cta">联系我们</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="菜单">
@@ -264,14 +274,16 @@
   <div class="container hero-container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="hero-tag" data-reveal-hero>AI行业生态服务商</div>
+        <div class="hero-tag" data-reveal-hero>
+          <span class="hero-tag-dot"></span>
+          企业级 AI 营销基础设施
+        </div>
         <h1 class="hero-title" data-reveal-hero>
-          <span class="hero-line"><span class="hero-title-em">AI</span> 营销军团</span>
-          <span class="hero-line">一台电脑就够了</span>
+          <span class="hero-line">让增长流程</span>
+          <span class="hero-line"><span class="hero-title-em">自动运转</span></span>
         </h1>
         <p class="hero-sub" data-reveal-hero>
-          荔猫AI以超级员工SaaS平台为核心，打通公域获客→私域沉淀→AI转化全链路，<br class="hide-mobile">
-          为中小企业提供 AI获客 · AI引流 · AI销售 一站式解决方案。
+          荔猫AI把内容生产、全域获客、客户跟进与数据分析连接成一套持续运行的 AI 工作流，帮助团队把时间留给判断与创造。
         </p>
         <div class="hero-actions" data-reveal-hero>
           <a href="#" class="btn btn-accent btn-glow" data-modal="demo">
@@ -285,37 +297,42 @@
         <div class="hero-indicators" data-reveal-hero>
           <div class="hero-indicator">
             <span class="hero-ind-num" data-count="30">0</span><span class="hero-ind-unit">万+</span>
-            <span class="hero-ind-label">全网用户</span>
+            <span class="hero-ind-label">服务用户</span>
           </div>
           <div class="hero-ind-divider"></div>
           <div class="hero-indicator">
             <span class="hero-ind-num" data-count="1000">0</span><span class="hero-ind-unit">万+</span>
-            <span class="hero-ind-label">私域流量</span>
+            <span class="hero-ind-label">累计触达</span>
           </div>
           <div class="hero-ind-divider"></div>
           <div class="hero-indicator">
             <span class="hero-ind-num" data-count="100">0</span><span class="hero-ind-unit">个</span>
-            <span class="hero-ind-label">AI员工</span>
+            <span class="hero-ind-label">AI 工作角色</span>
           </div>
         </div>
       </div>
       <div class="hero-visual" data-reveal-hero>
-        <div class="hero-card" id="heroCard">
-          <div class="hero-card-glow"></div>
-          <div class="hero-card-header">
-            <div class="hero-card-dots">
-              <span class="hero-card-dot" style="background:#ff5f57"></span>
-              <span class="hero-card-dot" style="background:#ffbd2e"></span>
-              <span class="hero-card-dot" style="background:#28c840"></span>
-            </div>
-            <span class="hero-card-title">LM.CLAW 终端</span>
+        <div class="signal-stage" id="heroCard" aria-label="LM.CLAW AI 工作流协作网络动态图">
+          <div class="signal-grid"></div>
+          <div class="signal-orbit signal-orbit-one"><span></span></div>
+          <div class="signal-orbit signal-orbit-two"><span></span></div>
+          <div class="signal-core">
+            <span class="signal-core-mark">LM</span>
+            <strong>CLAW</strong>
+            <small>WORKFLOW ENGINE</small>
           </div>
-              <div class="hero-card-body">
-                <div class="hero-card-line blink-line"><span class="cm">_ 实时监控中 ...</span></div>
-              </div>
-          <div class="hero-card-footer">
-            <span class="hero-card-stat">100 个 AI 员工在线</span>
-            <span class="hero-card-stat">7×24h 执行中</span>
+          <div class="signal-node signal-node-content"><i></i><span>内容生成</span></div>
+          <div class="signal-node signal-node-lead"><i></i><span>线索捕获</span></div>
+          <div class="signal-node signal-node-sales"><i></i><span>智能跟进</span></div>
+          <div class="signal-node signal-node-data"><i></i><span>数据洞察</span></div>
+          <div class="signal-activity">
+            <div class="signal-activity-copy">
+              <span class="signal-live-dot"></span>
+              <span>AI 工作流持续运行</span>
+            </div>
+            <div class="signal-bars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -403,6 +420,50 @@
           <span class="product-tag">短视频混剪</span>
         </div>
       </div>
+    </div>
+
+    <div class="module-entry-grid" data-reveal-cards>
+      <a class="module-entry-card module-entry-tools" href="/products/marketing-drainage/index.html" data-reveal data-card>
+        <div class="module-entry-icon module-entry-icon-tools">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="module-entry-body">
+          <div class="module-entry-kicker">多平台自动化留痕触达</div>
+          <h3>全平台自动化营销引流工具</h3>
+          <p>覆盖抖音、小红书、快手、B站四大平台的自动化留痕营销系统，模拟人工的关注、私信、评论、点赞、@ 等行为，批量触达目标用户，实现多账号引流获客。</p>
+          <div class="module-entry-tags">
+            <span>抖音</span>
+            <span>小红书</span>
+            <span>快手</span>
+            <span>B站</span>
+            <span>多账号运营</span>
+          </div>
+        </div>
+        <span class="module-entry-cta">
+          查看详情
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <a class="module-entry-card module-entry-outbound" href="/products/ai-outbound/index.html" data-reveal data-card>
+        <div class="module-entry-icon module-entry-icon-outbound">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="module-entry-body">
+          <div class="module-entry-kicker">大模型驱动的智能外呼</div>
+          <h3>AI外呼系统（AI电销机器人）</h3>
+          <p>基于人工智能语音与NLP技术，自动拨打电话、与客户智能对话、筛选意向并记录数据。支持批量外呼、意向分级、自动转人工与全程录音转写，越用越智能。</p>
+          <div class="module-entry-tags">
+            <span>自动外呼</span>
+            <span>意向分级</span>
+            <span>自动转人工</span>
+            <span>全程记录</span>
+          </div>
+        </div>
+        <span class="module-entry-cta">
+          查看详情
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -641,16 +702,16 @@
       <svg class="flywheel-svg" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="rgba(201,149,61,0.3)"/>
-            <stop offset="100%" stop-color="rgba(201,149,61,0.8)"/>
+            <stop offset="0%" stop-color="rgba(246,114,25,0.3)"/>
+            <stop offset="100%" stop-color="rgba(246,114,25,0.8)"/>
           </linearGradient>
           <linearGradient id="arrowGrad2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="rgba(220,170,92,0.3)"/>
-            <stop offset="100%" stop-color="rgba(220,170,92,0.8)"/>
+            <stop offset="0%" stop-color="rgba(21,155,157,0.3)"/>
+            <stop offset="100%" stop-color="rgba(21,155,157,0.8)"/>
           </linearGradient>
         </defs>
         <line class="flywheel-arrow-line" x1="280" y1="100" x2="870" y2="100" stroke="url(#arrowGrad)" stroke-width="2" stroke-dasharray="590" stroke-dashoffset="590"/>
-        <polygon class="flywheel-arrow-head" points="870,94 885,100 870,106" fill="rgba(201,149,61,0.7)"/>
+        <polygon class="flywheel-arrow-head" points="870,94 885,100 870,106" fill="rgba(246,114,25,0.7)"/>
       </svg>
       <div class="flywheel-steps" data-reveal-cards>
         <div class="flywheel-step" data-reveal>
@@ -661,13 +722,13 @@
         </div>
         <div class="flywheel-step" data-reveal>
           <div class="flywheel-step-num">02</div>
-          <div class="flywheel-icon">📥</div>
+          <div class="flywheel-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></div>
           <h4>私域接流量</h4>
           <p>AI自动加粉拉群，智能识别意向客户，沉淀至私域池</p>
         </div>
         <div class="flywheel-step" data-reveal>
           <div class="flywheel-step-num">03</div>
-          <div class="flywheel-icon">🤖</div>
+          <div class="flywheel-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V4h6v3"/><path d="M8 12h.01M16 12h.01"/><path d="M8 16h8"/></svg></div>
           <h4>AI转化</h4>
           <p>AI销冠智能体7×24h跟单促单，客户分层精准培育</p>
         </div>

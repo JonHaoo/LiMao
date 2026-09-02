@@ -99,13 +99,13 @@ function createChart(canvas, id) {
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
     ctx.closePath();
-    ctx.fillStyle = 'rgba(245,166,35,0.12)'; ctx.fill();
-    ctx.strokeStyle = '#F5A623'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = 'rgba(246,114,25,0.12)'; ctx.fill();
+    ctx.strokeStyle = '#f67219'; ctx.lineWidth = 2; ctx.stroke();
 
     for (let i = 0; i < n; i++) {
       const a = Math.PI*2*i/n - Math.PI/2, v = values[i]/100*r*p;
       ctx.beginPath(); ctx.arc(cx+Math.cos(a)*v, cy+Math.sin(a)*v, 4, 0, Math.PI*2);
-      ctx.fillStyle = '#F5A623'; ctx.fill();
+      ctx.fillStyle = '#f67219'; ctx.fill();
     }
 
     ctx.font = '9px Inter,Noto Sans SC,sans-serif';
@@ -119,10 +119,10 @@ function createChart(canvas, id) {
 
   function renderStackedBar() {
     const data = [
-      { label: '短视频引流', v: 35, color: '#F5A623' },
+      { label: '短视频引流', v: 35, color: '#f67219' },
       { label: '私信互动',    v: 25, color: '#4A90D9' },
-      { label: '评论区',      v: 18, color: '#AF52DE' },
-      { label: 'AI客服',     v: 12, color: '#4CD964' },
+      { label: '评论区',      v: 18, color: '#159b9d' },
+      { label: 'AI客服',     v: 12, color: '#19a7a8' },
       { label: '自然搜索',   v: 10, color: '#FF6B6B' },
     ];
     const total = data.reduce((s, d) => s + d.v, 0);
@@ -254,8 +254,8 @@ function createChart(canvas, id) {
   function renderDimRadar() {
     const p = animProgress;
     const data = [
-      { label: 'AI工具实操', v: 92, color: '#AF52DE' },
-      { label: '内容策划',    v: 85, color: '#F5A623' },
+      { label: 'AI工具实操', v: 92, color: '#f67219' },
+      { label: '内容策划',    v: 85, color: '#159b9d' },
       { label: '数据分析',    v: 78, color: '#4A90D9' },
       { label: '投放优化',    v: 70, color: '#4CD964' },
       { label: '团队管理',    v: 65, color: '#FF6B6B' },
@@ -319,7 +319,7 @@ function createChart(canvas, id) {
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
     ctx.closePath();
-    ctx.strokeStyle = '#AF52DE';
+    ctx.strokeStyle = '#159b9d';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -352,9 +352,9 @@ function createChart(canvas, id) {
     const p = animProgress;
     const data = [
       { label: '数据安全', v: 98, color: '#4CD964' },
-      { label: '部署速度', v: 95, color: '#F5A623' },
+      { label: '部署速度', v: 95, color: '#f67219' },
       { label: '系统稳定性', v: 92, color: '#4A90D9' },
-      { label: '售后响应',  v: 88, color: '#AF52DE' },
+      { label: '售后响应',  v: 88, color: '#159b9d' },
     ];
     const pad = { t: 4, b: 18, l: 50, r: 6 };
     const cw = W - pad.l - pad.r;
@@ -488,15 +488,15 @@ function createChart(canvas, id) {
     'serv-xiaoshou': () => renderLine([12,24,33,40], ['第1周','第2周','第3周','第4周'], 50, '#4A90D9', 'rgba(74,144,217,0.2)'),
     'serv-jiaopei':  () => renderDimRadar(),
     'serv-dongman':  () => renderBars([
-      {v:470, label:'AI漫剧', c:['#F5A623','#C9953D']},
-      {v:120, label:'真人短剧', c:['#4A90D9','#007AFF']},
-      {v:80,  label:'动画短片', c:['#AF52DE','#5856D6']},
+      {v:470, label:'AI漫剧', c:['#f67219','#f98a40']},
+      {v:120, label:'真人短剧', c:['#159b9d','#19a7a8']},
+      {v:80,  label:'动画短片', c:['#6d7f95','#9aa8b8']},
       {v:50,  label:'品牌定制', c:['#FF6B6B','#FF3B30']},
     ], 500),
     'serv-bushu':    () => renderCapsBars(),
-    'case-zhizao':   () => renderGroupedBars([{v:50,c:'rgba(0,0,0,0.08)'},{v:150,c:'#F5A623'}], 'B', 'A'),
-    'case-meiye':    () => renderLine([12,15,20,28,34,38], ['1月','2月','3月','4月','5月','6月'], 50, '#4CD964', 'rgba(76,217,100,0.18)'),
-    'case-dianshang':() => renderGroupedBars([{v:15,c:'rgba(0,0,0,0.08)'},{v:68,c:'#4CD964'}], 'B', 'A'),
+    'case-zhizao':   () => renderGroupedBars([{v:50,c:'rgba(10,22,40,0.08)'},{v:150,c:'#f67219'}], 'B', 'A'),
+    'case-meiye':    () => renderLine([12,15,20,28,34,38], ['1月','2月','3月','4月','5月','6月'], 50, '#159b9d', 'rgba(21,155,157,0.18)'),
+    'case-dianshang':() => renderGroupedBars([{v:15,c:'rgba(10,22,40,0.08)'},{v:68,c:'#159b9d'}], 'B', 'A'),
   };
 
   const render = renderers[id];

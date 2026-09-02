@@ -1,0 +1,934 @@
+/* Shared product system: quiet surfaces, strong type, and one orange signal. */
+:root {
+  --site-ink: #0a1628;
+  --site-muted: #526174;
+  --site-subtle: #8793a3;
+  --site-paper: #ffffff;
+  --site-tint: #f6f8fb;
+  --site-line: #dfe5ec;
+  --site-line-strong: #c7d1dc;
+  --site-accent: #f67219;
+  --site-accent-dark: #cf4f0b;
+  --site-accent-tint: #fff1e8;
+  --site-teal: #159b9d;
+  --site-navy: #0a1628;
+  --site-navy-soft: #12243a;
+  --site-radius: 8px;
+  --site-shadow: 0 16px 40px rgba(10, 22, 40, 0.08);
+  --site-font: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+body.module-page,
+body.product-page {
+  min-width: 320px;
+  overflow-x: hidden;
+  font-family: var(--site-font);
+  color: var(--site-ink);
+  background: var(--site-tint);
+  letter-spacing: 0;
+}
+
+body.module-page.theme-tools,
+body.module-page.theme-outbound {
+  --ink: var(--site-ink);
+  --muted: var(--site-muted);
+  --paper: var(--site-paper);
+  --panel: var(--site-paper);
+  --section-tint: var(--site-tint);
+  --line: var(--site-line);
+  --line-soft: rgba(10, 22, 40, 0.08);
+  --accent: var(--site-accent);
+  --accent-strong: var(--site-accent-dark);
+  --accent-warm: var(--site-accent);
+  --accent-green: var(--site-teal);
+  --accent-cyan: var(--site-teal);
+  --hero-text: #ffffff;
+  --hero-muted: #b7c4d3;
+  --hero-bg: var(--site-navy);
+  --console-bg: #101e30;
+  --console-panel: rgba(255, 255, 255, 0.045);
+  --btn-bg: var(--site-accent);
+  --btn-bg-hover: var(--site-accent-dark);
+  --bar-bg: rgba(255, 255, 255, 0.94);
+}
+
+body.product-video-page,
+body.product-geo-page {
+  --bg: var(--site-tint);
+  --panel: var(--site-paper);
+  --panel-strong: var(--site-paper);
+  --text: var(--site-ink);
+  --muted: var(--site-muted);
+  --primary: var(--site-accent);
+  --primary-glow: rgba(246, 114, 25, 0.18);
+  --accent: var(--site-accent);
+  --accent-glow: rgba(246, 114, 25, 0.18);
+  --highlight: var(--site-accent);
+  --text-main: var(--site-ink);
+  --text-muted: var(--site-muted);
+  --border: var(--site-line);
+  --border-hover: var(--site-line-strong);
+  --success: var(--site-teal);
+  --danger: var(--site-accent);
+}
+
+/* ---------- company bar ---------- */
+.site-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(10, 22, 40, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(10, 22, 40, 0.04);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.site-bar-inner,
+.site-container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.site-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 66px;
+  padding-block: 8px;
+}
+
+.site-bar .brand,
+.module-footer .brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  color: var(--site-ink);
+  text-decoration: none;
+}
+
+.site-bar .brand-logo,
+.module-footer .brand-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.site-bar .brand-name,
+.module-footer .brand-name {
+  color: var(--site-ink);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.module-switch {
+  display: flex;
+  gap: 3px;
+  max-width: 100%;
+  margin-left: auto;
+  padding: 3px;
+  overflow-x: auto;
+  border: 1px solid var(--site-line);
+  border-radius: var(--site-radius);
+  background: var(--site-tint);
+  scrollbar-width: none;
+}
+
+.module-switch::-webkit-scrollbar {
+  display: none;
+}
+
+.module-switch-link {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 4px 13px;
+  border-radius: 5px;
+  color: var(--site-muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.module-switch-link:hover {
+  color: var(--site-ink);
+}
+
+.module-switch-link.is-active {
+  background: var(--site-paper);
+  color: var(--site-accent-dark);
+  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.08);
+}
+
+.bar-phone {
+  flex: 0 0 auto;
+  color: var(--site-ink);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bar-phone:hover {
+  color: var(--site-accent-dark);
+}
+
+/* ---------- marketing and outbound pages ---------- */
+body.module-page .container {
+  width: min(1180px, calc(100% - 40px));
+}
+
+body.module-page .module-hero {
+  padding: 86px 0 68px;
+  background: var(--site-navy);
+}
+
+body.module-page .hero-grid-bg {
+  opacity: 0.36;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+body.module-page .eyebrow {
+  border-color: rgba(246, 114, 25, 0.45);
+  border-radius: 5px;
+  background: rgba(246, 114, 25, 0.08);
+  color: #f4c8aa;
+}
+
+body.module-page .eyebrow::before {
+  background: var(--site-accent);
+}
+
+body.module-page .hero-copy h1 {
+  max-width: 850px;
+  margin-inline: auto;
+  font-size: 56px;
+  letter-spacing: 0;
+}
+
+body.module-page .hero-lead {
+  color: var(--hero-muted);
+}
+
+body.module-page .btn-primary {
+  background: var(--site-accent);
+  box-shadow: 0 12px 26px rgba(246, 114, 25, 0.22);
+}
+
+body.module-page .btn-primary:hover {
+  background: var(--site-accent-dark);
+}
+
+body.module-page .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: transparent;
+}
+
+body.module-page .hero-meta span {
+  border-color: rgba(255, 255, 255, 0.16);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+body.module-page .console {
+  border-color: rgba(255, 255, 255, 0.16);
+  border-radius: var(--site-radius);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+body.module-page .console-top,
+body.module-page .console-foot {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+body.module-page .console-state i,
+body.module-page .task-dot {
+  background: var(--site-accent);
+  box-shadow: 0 0 0 4px rgba(246, 114, 25, 0.14);
+}
+
+body.module-page .platform-tab.is-active {
+  background: rgba(246, 114, 25, 0.18);
+  color: #ffffff;
+}
+
+body.module-page .status-ok {
+  color: #72d4bd;
+  background: rgba(21, 155, 157, 0.16);
+}
+
+body.module-page .module-section {
+  padding-block: 94px;
+  background: var(--site-paper);
+}
+
+body.module-page .module-section-tint,
+body.module-page .module-section-price {
+  border-color: var(--site-line);
+  background: var(--site-tint);
+}
+
+body.module-page .section-head h2,
+body.module-page .contact-copy h2 {
+  color: var(--site-ink);
+}
+
+body.module-page .section-kicker {
+  color: var(--site-accent-dark);
+}
+
+body.module-page .section-head > p:last-child,
+body.module-page .platform-card-top p,
+body.module-page .action-body p,
+body.module-page .feature-card p,
+body.module-page .tech-card p,
+body.module-page .function-card p,
+body.module-page .advantage-card p,
+body.module-page .price-desc,
+body.module-page .contact-copy > p:not(.section-kicker) {
+  color: var(--site-muted);
+}
+
+body.module-page .platform-card,
+body.module-page .action-card,
+body.module-page .feature-card,
+body.module-page .tech-card,
+body.module-page .function-card,
+body.module-page .advantage-card,
+body.module-page .price-card,
+body.module-page .contact-card {
+  border-color: var(--site-line);
+  border-radius: var(--site-radius);
+  background: var(--site-paper);
+  box-shadow: none;
+}
+
+body.module-page .platform-card:hover,
+body.module-page .feature-card:hover,
+body.module-page .price-card:hover {
+  border-color: rgba(246, 114, 25, 0.55);
+  box-shadow: var(--site-shadow);
+}
+
+body.module-page .platform-mark {
+  border-radius: 5px;
+}
+
+body.module-page .mini-actions li,
+body.module-page .package-note span,
+body.module-page .contact-lines a {
+  border-radius: 5px;
+  background: var(--site-tint);
+  color: var(--site-muted);
+}
+
+body.module-page .feature-index,
+body.module-page .advantage-efficiency .advantage-stat,
+body.module-page .price-seats {
+  color: var(--site-accent-dark);
+}
+
+body.module-page .action-icon-follow,
+body.module-page .action-icon-dm,
+body.module-page .action-icon-comment,
+body.module-page .action-icon-like,
+body.module-page .action-icon-at,
+body.module-page .function-icon-call,
+body.module-page .function-icon-chat,
+body.module-page .function-icon-level,
+body.module-page .function-icon-record,
+body.module-page .function-icon-shield,
+body.module-page .function-icon-dashboard,
+body.module-page .function-icon-flow,
+body.module-page .function-icon-line,
+body.module-page .tech-code {
+  border-radius: 5px;
+  color: var(--site-accent-dark);
+  background: var(--site-accent-tint);
+}
+
+body.module-page .advantage-cost .advantage-stat,
+body.module-page .advantage-scale .advantage-stat {
+  color: var(--site-teal);
+}
+
+body.module-page .price-recommended {
+  border-color: var(--site-accent);
+  box-shadow: 0 14px 30px rgba(246, 114, 25, 0.12);
+}
+
+body.module-page .price-max {
+  border-color: var(--site-navy);
+  background: var(--site-navy);
+}
+
+body.module-page .price-type span {
+  border-radius: 4px;
+  background: var(--site-accent);
+}
+
+body.module-page .notice-band,
+body.module-page .notice-band-warm {
+  color: var(--site-ink);
+  background: #fff4ec;
+}
+
+body.module-page .notice-badge,
+body.module-page .notice-band-warm .notice-badge {
+  border-radius: 4px;
+  background: var(--site-accent-tint);
+  color: var(--site-accent-dark);
+}
+
+body.module-page .contact-lines a:hover {
+  border-color: var(--site-accent);
+  color: var(--site-accent-dark);
+}
+
+body.module-page .module-footer,
+body.product-page .module-footer {
+  border-top-color: var(--site-line);
+  background: var(--site-paper);
+}
+
+.module-footer {
+  padding-block: 27px;
+}
+
+.module-footer .footer-inner p,
+.module-footer .footer-inner > span {
+  color: var(--site-muted);
+}
+
+/* ---------- AI video pricing and feature tables ---------- */
+body.product-video-page {
+  background: var(--site-tint);
+}
+
+body.product-video-page > .container {
+  width: min(1180px, calc(100% - 40px));
+  padding: 34px 0 64px;
+}
+
+.product-video-page .top-nav {
+  justify-content: flex-start;
+  gap: 0;
+  margin: 0 0 48px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--site-line);
+}
+
+.product-video-page .nav-btn {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--site-muted);
+  font-size: 14px;
+}
+
+.product-video-page .nav-btn:hover,
+.product-video-page .nav-btn.active {
+  background: var(--site-accent-tint);
+  color: var(--site-accent-dark);
+  box-shadow: none;
+  transform: none;
+}
+
+.product-video-page > .container > header {
+  margin-bottom: 42px;
+  text-align: left;
+}
+
+.product-video-page > .container > header h1 {
+  max-width: 760px;
+  color: var(--site-ink);
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-shadow: none;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.product-video-page > .container > header h2 {
+  margin-top: 10px;
+  color: var(--site-accent-dark);
+  font-size: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.product-video-page .subtitle {
+  color: var(--site-muted);
+  font-size: 15px;
+}
+
+.product-video-page .pricing-wrapper {
+  overflow: auto;
+  border: 1px solid var(--site-line);
+  border-radius: var(--site-radius);
+  background: var(--site-paper);
+  box-shadow: var(--site-shadow);
+  backdrop-filter: none;
+}
+
+.product-video-page .pricing-table thead th {
+  background: var(--site-navy);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.product-video-page .pricing-table thead th:first-child,
+.product-video-page .pricing-table tbody td:first-child {
+  background: #f0f3f7;
+  color: var(--site-ink);
+  border-color: var(--site-line);
+  text-shadow: none;
+}
+
+.product-video-page .pricing-table tbody td {
+  border-color: var(--site-line);
+  color: var(--site-muted);
+  background: var(--site-paper);
+}
+
+.product-video-page .pricing-table tbody tr:hover td {
+  background: #fff8f3;
+  color: var(--site-ink);
+}
+
+.product-video-page .pricing-table thead th.col-highlight {
+  background: #182c42;
+  box-shadow: inset 0 3px var(--site-accent);
+}
+
+.product-video-page .plan-name,
+.product-video-page .plan-price {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.product-video-page .computing-power {
+  border-color: rgba(246, 114, 25, 0.45);
+  border-radius: 4px;
+  background: rgba(246, 114, 25, 0.14);
+  color: #ffc8a6;
+}
+
+.product-video-page .col-highlight .plan-name {
+  color: #ffc09b;
+}
+
+.product-video-page .mark-check {
+  color: var(--site-teal);
+  text-shadow: none;
+}
+
+.product-video-page .mark-cross {
+  color: var(--site-subtle);
+}
+
+.product-video-page footer:not(.module-footer) {
+  border-top-color: var(--site-line);
+}
+
+.product-video-page .additional-info,
+.product-video-page .notes {
+  border-color: var(--site-line);
+  border-radius: var(--site-radius);
+  background: var(--site-paper);
+  box-shadow: none;
+}
+
+.product-video-page .additional-info h3,
+.product-video-page .notes h3 {
+  color: var(--site-ink);
+}
+
+.product-video-page .additional-info h3::before,
+.product-video-page .notes h3::before {
+  background: var(--site-accent);
+  box-shadow: none;
+}
+
+.product-video-page .notes ol,
+.product-video-page .footer-disclaimer {
+  color: var(--site-muted);
+}
+
+.product-video-page .scroll-hint {
+  border-radius: 5px;
+  background: var(--site-navy);
+  box-shadow: 0 8px 20px rgba(10, 22, 40, 0.16);
+}
+
+/* ---------- GEO: retain the city image, remove the game HUD ---------- */
+body.product-geo-page {
+  background: var(--site-tint);
+}
+
+.product-geo-page .site-shell {
+  max-width: 1180px;
+  background: var(--site-paper);
+  border-inline: 1px solid var(--site-line);
+}
+
+.product-geo-page .site-shell::before {
+  opacity: 0.35;
+  background:
+    linear-gradient(rgba(10, 22, 40, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 22, 40, 0.045) 1px, transparent 1px);
+}
+
+.product-geo-page .hero-tech-layer {
+  border-color: rgba(246, 114, 25, 0.28);
+  border-radius: var(--site-radius);
+  background: var(--site-navy);
+}
+
+.product-geo-page .hero-tech-layer::after {
+  background:
+    linear-gradient(180deg, rgba(10, 22, 40, 0.05), rgba(10, 22, 40, 0.46) 56%, rgba(10, 22, 40, 0.88)),
+    linear-gradient(90deg, rgba(10, 22, 40, 0.78), transparent 26%, transparent 74%, rgba(10, 22, 40, 0.78));
+}
+
+.product-geo-page .hero-tech-layer::before {
+  opacity: 0.45;
+  background:
+    linear-gradient(rgba(246, 114, 25, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246, 114, 25, 0.09) 1px, transparent 1px);
+}
+
+.product-geo-page .data-orbit {
+  border-color: rgba(246, 114, 25, 0.22);
+  border-right-color: rgba(246, 114, 25, 0.72);
+}
+
+.product-geo-page .data-orbit--middle {
+  border-color: rgba(21, 155, 157, 0.26);
+  border-left-color: transparent;
+}
+
+.product-geo-page .data-orbit--inner {
+  border-color: rgba(246, 114, 25, 0.34);
+  border-top-color: transparent;
+}
+
+.product-geo-page .data-orbit::after,
+.product-geo-page .network-node i {
+  background: var(--site-accent);
+  box-shadow: 0 0 12px rgba(246, 114, 25, 0.5);
+}
+
+.product-geo-page .network-node,
+.product-geo-page .tech-corner {
+  border-color: rgba(246, 114, 25, 0.42);
+}
+
+.product-geo-page .scan-beam {
+  border-bottom-color: rgba(246, 114, 25, 0.48);
+  background: linear-gradient(to bottom, transparent, rgba(246, 114, 25, 0.08));
+  box-shadow: 0 14px 28px rgba(246, 114, 25, 0.08);
+}
+
+.product-geo-page .system-bar {
+  border-color: rgba(246, 114, 25, 0.35);
+  border-right-color: rgba(21, 155, 157, 0.35);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(10, 22, 40, 0.08);
+  color: var(--site-ink);
+}
+
+.product-geo-page .system-name i {
+  border-color: var(--site-accent);
+  background: var(--site-accent);
+  box-shadow: none;
+}
+
+.product-geo-page .system-state,
+.product-geo-page .hero-kicker,
+.product-geo-page .hero-subtitle {
+  color: #dce7f2;
+}
+
+.product-geo-page .geo-mark,
+.product-geo-page .hero-subtitle {
+  background: none;
+  color: #ffffff;
+  filter: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.product-geo-page .hero-copy h1 {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.product-geo-page .feature-tag {
+  border-color: rgba(246, 114, 25, 0.42);
+  border-radius: 5px;
+  background: rgba(10, 22, 40, 0.72);
+  box-shadow: none;
+}
+
+.product-geo-page .feature-tag b,
+.product-geo-page .card-icon,
+.product-geo-page .pain-list strong,
+.product-geo-page .solution-icon,
+.product-geo-page .asset-location span {
+  color: var(--site-accent);
+}
+
+.product-geo-page .glass-card,
+.product-geo-page .support-card {
+  border-color: var(--site-line);
+  border-radius: var(--site-radius);
+  background: var(--site-paper);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.product-geo-page .glass-card::before {
+  background: linear-gradient(90deg, var(--site-accent), var(--site-teal), transparent);
+  box-shadow: none;
+}
+
+.product-geo-page .intro-card,
+.product-geo-page .intro-card h2,
+.product-geo-page .support-card h3,
+.product-geo-page .table-card h3 {
+  color: var(--site-ink);
+}
+
+.product-geo-page .section-title {
+  border-color: var(--site-line);
+  border-left-color: var(--site-accent);
+  border-radius: 5px;
+  background: var(--site-paper);
+  box-shadow: none;
+  color: var(--site-ink);
+}
+
+.product-geo-page .pain-list li,
+.product-geo-page .core-list li {
+  border-color: var(--site-line);
+  color: var(--site-muted);
+}
+
+.product-geo-page .solution-highlight {
+  border-radius: 0 5px 5px 0;
+  border-left-color: var(--site-accent);
+  background: var(--site-accent-tint);
+  box-shadow: none;
+  color: var(--site-ink);
+}
+
+.product-geo-page .solution-highlight strong,
+.product-geo-page .core-list strong,
+.product-geo-page .advantage-list strong {
+  color: var(--site-accent-dark);
+}
+
+.product-geo-page .table-scroll {
+  border-color: var(--site-line);
+  border-radius: 5px;
+  scrollbar-color: var(--site-line-strong) var(--site-tint);
+}
+
+.product-geo-page .data-table th {
+  background: var(--site-navy);
+  color: #ffffff;
+}
+
+.product-geo-page .data-table td {
+  border-color: var(--site-line);
+  background: var(--site-paper);
+  color: var(--site-muted);
+}
+
+.product-geo-page .data-table tr:hover td {
+  background: #fff8f3;
+}
+
+.product-geo-page .highlight-text {
+  color: var(--site-accent-dark);
+}
+
+.product-geo-page .case-red {
+  color: #a44d3f;
+}
+
+.product-geo-page .case-blue {
+  color: var(--site-teal);
+}
+
+.product-geo-page .support-icon {
+  background: none;
+  color: var(--site-accent);
+  -webkit-text-fill-color: currentColor;
+}
+
+.product-geo-page .support-card p,
+.product-geo-page .footer-note {
+  color: var(--site-muted);
+}
+
+.product-geo-page .digital-asset {
+  border-color: rgba(246, 114, 25, 0.4);
+  border-radius: var(--site-radius);
+  background: var(--site-navy);
+  box-shadow: none;
+}
+
+.product-geo-page .asset-heading strong {
+  color: var(--site-accent);
+}
+
+.product-geo-page .footer-slogan {
+  color: var(--site-ink);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.product-geo-page .glow-divider {
+  background: linear-gradient(90deg, transparent, var(--site-accent), var(--site-teal), transparent);
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .site-bar-inner {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    min-height: 60px;
+    padding-block: 8px;
+  }
+
+  .site-bar .bar-phone {
+    margin-left: auto;
+    font-size: 13px;
+  }
+
+  .module-switch {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .module-switch-link {
+    min-height: 32px;
+    padding-inline: 11px;
+    font-size: 13px;
+  }
+
+  body.module-page .module-hero {
+    padding-top: 62px;
+  }
+
+  body.module-page .module-section {
+    padding-block: 70px;
+  }
+
+  body.module-page .section-head h2 {
+    font-size: 30px;
+  }
+
+  body.product-video-page > .container {
+    width: min(100% - 28px, 1180px);
+    padding-top: 22px;
+  }
+
+  .product-video-page .top-nav {
+    margin-bottom: 32px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .product-video-page > .container > header {
+    margin-bottom: 30px;
+  }
+
+  .product-video-page > .container > header h1 {
+    font-size: 34px;
+  }
+
+  .product-video-page .pricing-wrapper {
+    border-radius: 6px !important;
+  }
+
+  .product-video-page .pricing-table tbody tr {
+    border-color: var(--site-line) !important;
+    border-radius: 6px !important;
+    background: var(--site-paper) !important;
+  }
+
+  .product-geo-page .site-shell {
+    border-inline: 0;
+  }
+
+  .product-geo-page .container {
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-container,
+  .site-bar-inner,
+  body.module-page .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .site-bar .brand-name,
+  .module-footer .brand-name {
+    font-size: 16px;
+  }
+
+  .site-bar .brand-logo,
+  .module-footer .brand-logo {
+    width: 27px;
+    height: 27px;
+  }
+
+  body.module-page .hero-copy h1 {
+    font-size: 38px;
+  }
+
+  body.module-page .hero-lead {
+    font-size: 15px;
+  }
+
+  body.module-page .hero-meta {
+    gap: 7px;
+  }
+
+  body.module-page .hero-meta span {
+    font-size: 12px;
+  }
+
+  .module-footer .footer-inner {
+    align-items: flex-start;
+  }
+
+  .module-footer .footer-inner p {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-geo-page *,
+  .product-geo-page *::before,
+  .product-geo-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
