@@ -1,137 +1,108 @@
 /**
- * Lightweight Canvas 2D hero background — replaces Three.js.
- * ~2KB gzipped vs ~600KB for three.js.
- * No rAF loop: uses requestAnimationFrame only when hero is in viewport.
+ * Lightweight, deterministic canvas backdrop for the homepage hero.
+ * The animation stays deliberately quiet so the content remains primary.
  */
 export function initHeroBackground(canvas) {
   const ctx = canvas.getContext('2d');
-  let W, H, mouseX = 0, mouseY = 0, targetX = 0, targetY = 0, time = 0;
-  let frameId = null, lastTime = 0;
-  const fps = 24, interval = 1000 / fps;
-  let isVisible = true, cleanup = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const points = [];
+  let width = 0;
+  let height = 0;
+  let frameId = null;
+  let isVisible = true;
+  let isDisposed = false;
+  let pointerX = 0;
+  let pointerY = 0;
+  let driftX = 0;
+  let driftY = 0;
+
+  function buildPoints() {
+    points.length = 0;
+    for (let i = 0; i < 28; i += 1) {
+      const column = i % 7;
+      const row = Math.floor(i / 7);
+      points.push({
+        x: width * (0.43 + column * 0.085) + Math.sin(i * 2.7) * 28,
+        y: height * (0.18 + row * 0.2) + Math.cos(i * 1.9) * 24,
+        radius: 1 + (i % 3) * 0.45,
+        phase: i * 0.61,
+      });
+    }
+  }
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio, 2);
-    W = canvas.clientWidth * dpr;
-    H = canvas.clientHeight * dpr;
-    canvas.width = W;
-    canvas.height = H;
-    ctx.scale(dpr, dpr);
-    W /= dpr;
-    H /= dpr;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = canvas.clientWidth;
+    height = canvas.clientHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildPoints();
+    if (reduceMotion) draw(0);
   }
 
-  // 12 floating shapes
-  const shapes = [];
-  const colors = ['#C9953D', '#DCAA5C', '#E8C06A'];
-  for (let i = 0; i < 12; i++) {
-    const s = 8 + Math.random() * 18;
-    shapes.push({
-      x: (Math.random() - 0.5) * W * 0.8,
-      y: (Math.random() - 0.5) * H * 0.8,
-      size: s, type: ['torus','octa','ico'][i % 3],
-      color: colors[i % 3], opacity: 0.15 + Math.random() * 0.25,
-      rot: Math.random() * Math.PI * 2,
-      rotSpeed: (Math.random() - 0.5) * 0.02,
-      floatSpeed: 0.3 + Math.random() * 0.8,
-      floatOffset: Math.random() * Math.PI * 2,
-    });
-  }
+  function draw(time) {
+    ctx.clearRect(0, 0, width, height);
+    driftX += (pointerX - driftX) * 0.025;
+    driftY += (pointerY - driftY) * 0.025;
 
-  // 120 particles
-  const particles = [];
-  for (let i = 0; i < 120; i++) {
-    particles.push({
-      x: (Math.random() - 0.5) * W * 1.2,
-      y: (Math.random() - 0.5) * H * 1.2,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      r: 0.5 + Math.random() * 1.5,
-    });
-  }
+    const seconds = time * 0.001;
+    const rendered = points.map((point) => ({
+      x: point.x + driftX * 10 + Math.sin(seconds * 0.24 + point.phase) * 5,
+      y: point.y + driftY * 7 + Math.cos(seconds * 0.2 + point.phase) * 4,
+      radius: point.radius,
+    }));
 
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < rendered.length; i += 1) {
+      for (let j = i + 1; j < rendered.length; j += 1) {
+        const a = rendered[i];
+        const b = rendered[j];
+        const distance = Math.hypot(a.x - b.x, a.y - b.y);
+        if (distance > 118) continue;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(10,22,40,${(1 - distance / 118) * 0.055})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
 
-    targetX += (mouseX - targetX) * 0.02;
-    targetY += (mouseY - targetY) * 0.02;
-    const t = time * 0.001;
-    const ox = targetX * 0.1, oy = targetY * 0.1;
-
-    // Particles
-    const pAlpha = 0.12;
-    particles.forEach((p) => {
-      p.x += p.vx + ox * 0.02;
-      p.y += p.vy + oy * 0.02;
-      const hw = W * 0.6, hh = H * 0.6;
-      if (p.x < -hw) p.x = hw; if (p.x > hw) p.x = -hw;
-      if (p.y < -hh) p.y = hh; if (p.y > hh) p.y = -hh;
+    rendered.forEach((point, index) => {
+      const orange = index % 6 === 0;
       ctx.beginPath();
-      ctx.arc(W/2 + p.x, H/2 + p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201,149,61,${pAlpha})`;
+      ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+      ctx.fillStyle = orange ? 'rgba(246,114,25,0.32)' : 'rgba(10,22,40,0.14)';
       ctx.fill();
     });
-
-    // Shapes
-    shapes.forEach((s) => {
-      const fy = Math.sin(t * s.floatSpeed + s.floatOffset) * 5;
-      const cx = W/2 + s.x + ox, cy = H/2 + s.y + oy + fy;
-      const rot = s.rot + t * s.rotSpeed;
-
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(rot);
-      ctx.globalAlpha = s.opacity;
-      const r = s.size / 2;
-
-      if (s.type === 'torus') {
-        ctx.strokeStyle = s.color; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.ellipse(0, 0, r, r*0.35, 0, 0, Math.PI*2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(0, 0, r*0.4, r*0.15, 0, Math.PI*0.5, Math.PI*1.5); ctx.stroke();
-      } else {
-        ctx.fillStyle = s.color;
-        ctx.beginPath();
-        const n = s.type === 'octa' ? 4 : 6;
-        const ao = s.type === 'octa' ? 0 : -Math.PI/6;
-        for (let i = 0; i < n; i++) {
-          const a = (Math.PI*2/n)*i + ao;
-          i === 0 ? ctx.moveTo(Math.cos(a)*r, Math.sin(a)*r) : ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
-        }
-        ctx.closePath(); ctx.fill();
-      }
-      ctx.restore();
-    });
   }
 
-  function loop(now) {
-    if (cleanup) return;
-    if (!isVisible) { frameId = requestAnimationFrame(loop); return; }
-    time = now;
-    if (now - lastTime >= interval) {
-      lastTime = now - (now - lastTime) % interval;
-      draw();
-    }
+  function loop(time) {
+    if (isDisposed) return;
+    if (isVisible) draw(time);
     frameId = requestAnimationFrame(loop);
   }
 
-  const obs = new IntersectionObserver(([e]) => {
-    isVisible = e.isIntersecting;
-    if (isVisible) lastTime = 0;
-  }, { threshold: 0 });
-  obs.observe(canvas);
+  function onPointerMove(event) {
+    pointerX = event.clientX / window.innerWidth - 0.5;
+    pointerY = event.clientY / window.innerHeight - 0.5;
+  }
 
-  document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  const observer = new IntersectionObserver(([entry]) => {
+    isVisible = entry.isIntersecting;
   });
 
+  observer.observe(canvas);
   window.addEventListener('resize', resize);
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
   resize();
-  loop(0);
+  if (!reduceMotion) frameId = requestAnimationFrame(loop);
 
   return () => {
-    cleanup = true;
-    cancelAnimationFrame(frameId);
-    obs.disconnect();
+    isDisposed = true;
+    if (frameId) cancelAnimationFrame(frameId);
+    observer.disconnect();
+    window.removeEventListener('resize', resize);
+    window.removeEventListener('pointermove', onPointerMove);
   };
 }
